@@ -3,7 +3,7 @@ import { join } from 'path';
 
 
 const db = new Database(join(process.cwd(), "database.db"));
-
+db.pragma('foreign_keys = ON');
 db.exec(`
   CREATE TABLE IF NOT EXISTS flags (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

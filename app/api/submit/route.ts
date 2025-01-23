@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getTeamId } from "../teams/route";
 import db from "@/app/lib/db";
 import Flag from "@/app/lib/types/flag";
+import { getTeamId } from "../teams/misc";
 
 interface SubmitFlagData {
   teamName: string,

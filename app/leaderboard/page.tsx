@@ -155,7 +155,7 @@ export default function Leaderboard() {
                       hour12: true
                     });
                   }}
-                itemSorter={(a) => -a.value}
+                itemSorter={(a) => (typeof a.value === 'number' ? -a.value : 0)}
                 formatter={(value, name) => [`${value} pts`, name]}
                 />
                 {currentStandings.map((standing) => {
