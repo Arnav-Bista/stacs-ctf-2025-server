@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
   const data = await request.json() as Partial<CreateTeamsInput>;
   if (!data.name) {
     return NextResponse.json(
-      { error: "name is required silly!" },
+      { error: "Name is required, silly!" },
       { status: 400 }
     );
   }
