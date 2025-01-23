@@ -27,13 +27,6 @@ interface TransormedData {
   data: Omit<DataPoint, "name">[]
 }
 
-interface Cumulative {
-  [key: string]: {
-    points: number,
-    index: number
-  }
-}
-
 function transformData(rawData: DataPoint[]): TransormedData[] {
   // Get all unique timestamps and sort them
   const timestamps = [...new Set([
@@ -134,6 +127,9 @@ export default function Leaderboard() {
                     const date = new Date(value);
                     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                   }}
+                  label={{
+                      value: 'Time',
+                    }}
                 />
                 <YAxis
                   className="text-sm text-muted-foreground"
