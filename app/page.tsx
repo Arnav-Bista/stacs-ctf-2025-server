@@ -4,7 +4,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="h-screen w-full flex flex-col items-center justify-center">
-      <div className="text-center">
+      
+      <div data="flag_{ok-this-one-was-really-easy}" className="text-center">
         <div className="text-4xl font-bold">STACS CTF 2025</div>
         <div className="mt-2">By STACS DEVs</div>
       </div>
