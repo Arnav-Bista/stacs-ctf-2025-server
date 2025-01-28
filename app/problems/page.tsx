@@ -24,7 +24,7 @@ const categoryInfo = [
     id: Category.MATH,
     name: "Math and Cryptography",
     description: "Tackle mathematical backbones of cryptography.",
-    link: '/problems/crypto',
+    link: '/problems/math-and-cryptography',
     
   },
   {

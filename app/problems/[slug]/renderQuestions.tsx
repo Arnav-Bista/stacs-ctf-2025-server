@@ -10,7 +10,11 @@ import { FlagSubmission } from "@/app/submit/flag-submission";
 export default function RenderQuestions({ slug }: { slug: string }) {
   return (
     <div className="">
-      <h1 className="text-4xl font-bold mb-8 text-center">{slug.charAt(0).toUpperCase() + slug.slice(1)}</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">
+        {slug.split('-')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ')}
+      </h1>
       <div className="flex items-center justify-center mb-8">
         <FlagSubmission />
       </div>
