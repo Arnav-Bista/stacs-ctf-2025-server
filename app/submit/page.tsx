@@ -19,7 +19,7 @@ interface Message {
 }
 
 
-export default function FlagSubmission() {
+export default function FlagSubmissionPage() {
   const [teamName, setTeamName] = useState('');
   const [flag, setFlag] = useState('');
   const [message, setMessage] = useState<Message>({ messageType: MessageType.INFO, message: '' });
@@ -54,7 +54,7 @@ export default function FlagSubmission() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="min-h-screen flex items-center justify-center p-24">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Submit Flag</CardTitle>

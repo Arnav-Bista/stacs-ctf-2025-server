@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
+import MurrayCurveBackground from "./background";
 
 
 const firaCode = Fira_Code({
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body
         className={`${firaCode.className} ${firaCode.variable} antialiased`}
       >
+        <MurrayCurveBackground />
         {children}
       </body>
     </html>

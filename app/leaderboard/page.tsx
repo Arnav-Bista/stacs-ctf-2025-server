@@ -106,14 +106,14 @@ export default function Leaderboard() {
   })).sort((a, b) => b.points - a.points);
 
   return (
-    <div className="flex h-screen p-6 gap-6">
-      <Card className="w-[70%] p-6">
+    <div className="flex flex-col lg:flex-row h-screen p-4 lg:p-6 gap-4 lg:gap-6">
+      <Card className="w-full lg:w-[70%] p-4 lg:p-6">
         {isLoading ? (
           <div className="h-[calc(100vh-120px)] flex items-center justify-center">
             <div className="text-lg text-muted-foreground">Loading...</div>
           </div>
         ) : (
-          <div className="h-[calc(100vh-120px)]">
+          <div className="h-[300px] lg:h-[calc(100vh-120px)]">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart>
                 <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
@@ -182,13 +182,13 @@ export default function Leaderboard() {
       </Card>
 
       {/* Leaderboard section (30%) */}
-      <Card className="w-[30%] p-6">
+      <Card className="w-full lg:w-[30%] p-4 lg:p-6">
         <h2 className="text-xl font-semibold mb-6">Leaderboard</h2>
         <div className="space-y-2">
           {currentStandings.map((team, index) => (
             <div
               key={team.name}
-              className={`p-3 rounded-md cursor-pointer transition-all
+              className={`p-2 lg:p-3 rounded-md cursor-pointer transition-all
                 ${selectedTeam === team.name
                   ? 'bg-muted scale-105'
                   : 'hover:bg-muted/50'
@@ -196,7 +196,7 @@ export default function Leaderboard() {
               onClick={() => setSelectedTeam(team.name === selectedTeam ? null : team.name)}
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 lg:gap-2">
                   <span className="font-semibold">{index + 1}.</span>
                   <div
                     className="w-3 h-3 rounded-full"
