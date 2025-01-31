@@ -17,6 +17,7 @@ export interface Question {
     type: 'image' | 'file';
     url: string;
   }[];
+  link?: string;
 }
 
 
@@ -31,7 +32,7 @@ export const questions: Question[] = [
       {
         name: "How Hungry...",
         type: "image",
-        url: "/forensics/how-hungry.png"
+        url: "/how-hungry.png"
       },
     ]
   },
@@ -44,7 +45,7 @@ export const questions: Question[] = [
       {
         name: "lsd? is that allowed?",
         type: "image",
-        url: "/forensics/lsd.png"
+        url: "/lsd.png"
       }
     ]
   },
@@ -60,12 +61,12 @@ export const questions: Question[] = [
       {
         name: "Encrypted Flag",
         type: "image",
-        url: "/forensics/encrypted_flag.png"
+        url: "/encrypted_flag.png"
       },
       {
         name: "Obfuscation Image",
         type: "image",
-        url: "/forensics/obfuscation_image.png"
+        url: "/obfuscation_image.png"
       }
     ]
   },
@@ -78,7 +79,7 @@ export const questions: Question[] = [
       {
         name: "Sky",
         type: "image",
-        url: "/forensics/sky.jpg"
+        url: "/sky.jpg"
       }
     ]
   },
@@ -91,7 +92,7 @@ export const questions: Question[] = [
       {
         name: "vineboom.mp3",
         type: "file",
-        url: "/forensics/vineboom.mp3"
+        url: "/vineboom.mp3"
       }
     ]
   },
@@ -104,7 +105,7 @@ export const questions: Question[] = [
       {
         name: "basic-auth",
         type: "file",
-        url: "/engineering/basic-auth"
+        url: "/basic-auth"
       }
     ]
   },
@@ -123,7 +124,7 @@ export const questions: Question[] = [
       {
         name: "syptpizxi.txt",
         type: "file",
-        url: "/math/syptpizxi.txt"
+        url: "/syptpizxi.txt"
       }
     ]
   },
@@ -132,5 +133,41 @@ export const questions: Question[] = [
     description: "The Chinese Remainder Theorem gives a unique solution to a system of linear congruences, provided that the moduli of said congruences are coprime.\n\n\nI.e. Given a set of arbitrary integers a_i, and a set of pairwise coprime integers p_i, given the following linear congruences hold:\n\n    x = a_1 mod p_1\n    x = a_2 mod p_2\n    x = a_3 mod p_3\n        ...\n    x = a_n mod p_n\n\nWe can get a solution: x = a mod N, where N is p_1 * p_2 * p_3 * ... * p_n.\n\n\nGiven the following congruences:\n\n    x = 4 mod 5\n    x = 5 mod 17\n    x = 34 mod 37\n\nFind the values of x & a such that: x = a mod 3145, and x satisfies the given congruences",
     points: 300,
     category: Category.MATH
+  },
+  {
+    title: "\"Encryption\"",
+    description: "I've just encrypted the flag!!1!!1 I bet you can't do anything with the cipher text!\n\nYou know what, here it is: ZmxhZ197YmFzZTY0LWlzLW5vdC1lbmNyeXB0aW9ufQ== ",
+    points: 200,
+    category: Category.MATH,
+    attachments: [
+      {
+        name: "Hint",
+        type: "file",
+        url: "/hint.png"
+      }
+    ]
+  },
+  {
+    title: "SQLi V1.0",
+    category: Category.ENGINEERING,
+    description: "This is my first time learning SQL, checkout this simple auth page I made!\nBut it'll be of no use to you since you dont know my credentials 😎",
+    link: "/problems/sqli/basic-auth",
+    points: 300,
+  },
+  {
+    title: "SQLi V1.1",
+    category: Category.ENGINEERING,
+    description: "So can login and bypass the authentication system... but can you find the flag?",
+    hints: ["It's a Sqlite database"],
+    link: "/problems/sqli/tables",
+    points: 500,
+  },
+  {
+    title: "SQLi V2.0",
+    category: Category.ENGINEERING,
+    description: "You've just gotten news that someone else is changing their password...",
+    hints: ["🔫"],
+    link: "/problems/sqli/stealer",
+    points: 800,
   }
 ];

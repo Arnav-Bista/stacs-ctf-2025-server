@@ -13,8 +13,6 @@ export default function MurrayCurveBackground() {
     .join(" ");
   const maxX = Math.max(...points.map(p => p[0]));
   const maxY = Math.max(...points.map(p => p[1]));
-  console.log('Max X:', maxX, 'Max Y:', maxY);
-  console.log("Length of points:", points.length);
 
   return (
     <div className="fixed mt-4 h-[100vh] w-[100vw] inset-0 -z-10 overflow-hidden">

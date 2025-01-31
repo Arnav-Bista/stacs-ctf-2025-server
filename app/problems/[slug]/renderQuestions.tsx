@@ -9,6 +9,7 @@ import { FlagSubmission } from "@/app/submit/flag-submission";
 import Link from "next/link";
 
 export default function RenderQuestions({ slug }: { slug: string }) {
+
   return (
     <div className="">
       <h1 className="text-4xl font-bold mb-8 text-center">
@@ -91,6 +92,14 @@ export default function RenderQuestions({ slug }: { slug: string }) {
                   </div>
                 </div>
               )}
+
+              {
+                question.link && (
+                  <Link href={question.link} className="w-full">
+                    <Button className="w-full">View Problem</Button>
+                  </Link>
+                )
+              }
             </CardContent>
           </Card>
         ))}
