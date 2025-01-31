@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
 interface Message {
   isError: boolean,
@@ -86,6 +87,9 @@ export default function TeamRegistration() {
 
             <div>
               <Button className="w-full" type="submit">Register Team</Button>
+            </div>
+            <div className="flex justify-center">
+              <Link href="/"><Button>Back</Button></Link>
             </div>
           </form>
         </CardContent>

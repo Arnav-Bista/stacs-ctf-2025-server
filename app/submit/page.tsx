@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
 enum MessageType {
   INFO,
@@ -54,7 +55,7 @@ export default function FlagSubmissionPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-24">
+    <div className="flex items-center justify-center p-24">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Submit Flag</CardTitle>
@@ -85,9 +86,16 @@ export default function FlagSubmissionPage() {
                 onChange={(e) => setFlag(e.target.value)}
               />
             </div>
+            <div>
             <Button type="submit" className="w-full">
               Submit Flag
             </Button>
+            </div>
+            <div className="flex justify-center">
+            <Link href="/">
+              <Button>Back</Button>
+            </Link>
+            </div>
           </form>
           {message.message && (
             <div className={`mt-4 text-sm ${message.messageType === MessageType.ERROR ? 'text-destructive' :

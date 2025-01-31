@@ -12,6 +12,8 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const COMPETITION_START = new Date('2025-01-22T00:00:00Z');
 const COMPETITION_END = new Date(COMPETITION_START.getTime() + (24 * 60 * 60 * 1000));
@@ -107,6 +109,9 @@ export default function Leaderboard() {
 
   return (
     <div className="flex flex-col lg:flex-row h-screen p-4 lg:p-6 gap-4 lg:gap-6">
+      <div>
+        <Link href="/"><Button>&lt;</Button></Link>
+      </div>
       <Card className="w-full lg:w-[70%] p-4 lg:p-6">
         {isLoading ? (
           <div className="h-[calc(100vh-120px)] flex items-center justify-center">

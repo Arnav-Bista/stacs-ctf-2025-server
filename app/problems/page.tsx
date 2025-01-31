@@ -71,6 +71,11 @@ export default function Page() {
           ))
         }
       </div>
+      <div>
+          <Link href="/">
+              <Button>Back</Button>
+          </Link>
+      </div>
     </>
   );
 }

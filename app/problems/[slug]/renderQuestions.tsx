@@ -6,6 +6,7 @@ import { ChevronDown, Download } from "lucide-react";
 import Image from "next/image";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { FlagSubmission } from "@/app/submit/flag-submission";
+import Link from "next/link";
 
 export default function RenderQuestions({ slug }: { slug: string }) {
   return (
@@ -15,8 +16,9 @@ export default function RenderQuestions({ slug }: { slug: string }) {
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')}
       </h1>
-      <div className="flex items-center justify-center mb-8">
+      <div className="flex items-center gap-4 justify-center mb-8">
         <FlagSubmission />
+        <Link href="/problems"> <Button>Back</Button> </Link>
       </div>
       <div className="space-y-6">
         {questions.map((question, index) => (
