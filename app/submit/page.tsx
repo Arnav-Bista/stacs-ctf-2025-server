@@ -60,7 +60,7 @@ export default function FlagSubmissionPage() {
           <CardTitle>Submit Flag</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form autoComplete='off' onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="teamName">Team Name</Label>
               <Input

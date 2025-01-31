@@ -32,26 +32,13 @@ export default function SQLiTables() {
       `);
 
       db.run(`
-        CREATE TABLE data (
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          flag TEXT
-        )
-      `);
-
-      // Not expected to crack this
-      db.run(`
-        INSERT INTO users (username, name, password)
-        VALUES ('noobysqlinjection', 'ha! the flag isnt here!', 'cracking_this_password_is_not_the_intended_challenge')
-      `);
-
-      db.run(`
         INSERT INTO users (username, name, password)
         VALUES ('tester', 'TestMaxer 900', 'password')
       `);
-
+      // Not expected to crack this
       db.run(`
-        INSERT INTO data (flag)
-        VALUES ('flag_{information-schemas-are-useful}')
+        INSERT INTO users (username, name, password)
+        VALUES ('GoofMaster9000', 'GoofMaster9000', 'cracking_this_password_is_not_the_intended_challenge')
       `);
 
       setDb(db);
@@ -59,6 +46,23 @@ export default function SQLiTables() {
     }
     init();
   }, []);
+
+  async function simulatePasswordChange() {
+    if (!db) return;
+    try {
+      db.run(` UPDATE users SET password = 'flag_{injections-allow-scary-triggers}' WHERE username = 'GoofMaster9000'`);
+      setMessage({
+        error: false,
+        message: "Password changed successfully"
+      });
+    } catch (error) {
+      setMessage({
+        error: true,
+        message: String(error)
+      });
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!db) return;
@@ -128,7 +132,7 @@ export default function SQLiTables() {
                   )}
                 </Button>
               </div>
-            
+
             </div>
             {message && (
               <div className={`text-sm font-medium ${message.error ? 'text-destructive' : 'text-green-500'}`}>
@@ -137,6 +141,9 @@ export default function SQLiTables() {
             )}
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Initializing..." : "Login"}
+            </Button>
+            <Button type="button" className="w-full" disabled={isLoading} onClick={simulatePasswordChange}>
+              {isLoading ? "Initializing..." : "Simulate user changing their password"}
             </Button>
           </form>
         </CardContent>

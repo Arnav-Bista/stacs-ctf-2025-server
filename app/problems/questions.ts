@@ -148,18 +148,26 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "SQLi V1",
+    title: "SQLi V1.0",
     category: Category.ENGINEERING,
     description: "This is my first time learning SQL, checkout this simple auth page I made!\nBut it'll be of no use to you since you dont know my credentials 😎",
-    // hints: ["its a WHERE username = ...  AND password = ... query"],
     link: "/problems/sqli/basic-auth",
     points: 300,
   },
   {
     title: "SQLi V1.1",
     category: Category.ENGINEERING,
-    description: "You can login and bypass the authentication system... but can you find the flag?",
+    description: "So can login and bypass the authentication system... but can you find the flag?",
+    hints: ["It's a Sqlite database"],
     link: "/problems/sqli/tables",
-    points: 300,
+    points: 500,
+  },
+  {
+    title: "SQLi V2.0",
+    category: Category.ENGINEERING,
+    description: "You've just gotten news that someone else is changing their password...",
+    hints: ["🔫"],
+    link: "/problems/sqli/stealer",
+    points: 800,
   }
 ];

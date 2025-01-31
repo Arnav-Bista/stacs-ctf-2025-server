@@ -47,11 +47,7 @@ export default function SQLiAuth() {
     if (!db) return;
     try {
       // SQL Injection Vulnerability 
-      const query = `
-      SELECT * FROM users 
-        WHERE username = '${username}' 
-        AND password = '${password}'
-      `;
+      const query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
       const result = db.exec(query);
       if (result.length > 0 && result[0].values.length > 0) {
         setMessage({
@@ -79,7 +75,7 @@ export default function SQLiAuth() {
           <CardDescription>Enter your credentials to access the system.</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form autoComplete='off' onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="username">Username</Label>
               <Input

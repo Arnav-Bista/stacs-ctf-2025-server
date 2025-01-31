@@ -74,7 +74,7 @@ export function FlagSubmission({ trigger }: FlagSubmissionProps) {
             <CardTitle>Submit Flag</CardTitle>
           </CardHeader>
           <CardContent className="px-0 pb-0">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form autoComplete='off' onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="teamName">Team Name</Label>
                 <Input

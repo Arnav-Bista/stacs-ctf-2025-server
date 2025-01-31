@@ -63,7 +63,7 @@ export default function TeamRegistration() {
           <CardTitle className="text-center">Register Your Team</CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form autoComplete='off'  className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <Label htmlFor="teamName">Team Name</Label>
               <Input
