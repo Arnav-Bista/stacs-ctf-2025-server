@@ -129,18 +129,6 @@ export default function RenderQuestions({ slug }: { slug: string }) {
                         )}
                       </div>
                     )}
-
-                    {question.api.responseFormat && (
-                      <div className="space-y-2 pt-2 border-t border-border">
-                        <p className="text-xs font-semibold text-muted-foreground">RESPONSE FORMAT</p>
-                        <p className="text-xs sm:text-sm">Type: {question.api.responseFormat.type}</p>
-                        {question.api.responseFormat.example && (
-                          <pre className="bg-background p-2 rounded text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap break-all font-mono">
-                            {question.api.responseFormat.example}
-                          </pre>
-                        )}
-                      </div>
-                    )}
                   </div>
                 </div>
               )}
