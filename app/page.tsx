@@ -8,16 +8,16 @@ export default function Home() {
         <div className="text-4xl font-bold">STACS CTF 2025</div>
         <div className="mt-2">By STACS DEVs</div>
       </div>
-      <div className="mt-4 flex flex-col items-center gap-4">
-        <div className="flex items-center justify-center gap-4">
-          <Link href="/teams">
-            <Button>Register Team</Button>
+      <div className="mt-4 flex flex-col items-center gap-4 w-full px-4 sm:px-0 sm:w-auto">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <Link href="/teams" className="w-full sm:w-auto">
+            <Button className="w-full">Register Team</Button>
           </Link>
-          <Link href="/submit">
-            <Button>Submit Flag</Button>
+          <Link href="/submit" className="w-full sm:w-auto">
+            <Button className="w-full">Submit Flag</Button>
           </Link>
-          <Link href="/leaderboard">
-            <Button>Leaderboard</Button>
+          <Link href="/leaderboard" className="w-full sm:w-auto">
+            <Button className="w-full">Leaderboard</Button>
           </Link>
         </div>
         <Link href="/problems" className="w-full">

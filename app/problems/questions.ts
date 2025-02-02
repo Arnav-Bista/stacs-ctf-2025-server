@@ -18,6 +18,15 @@ export interface Question {
     url: string;
   }[];
   link?: string;
+  api?: {
+    endpoint: string;
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+    description: string;
+    requestFormat?: {
+      type: 'json' | 'text' | 'binary';
+      example?: string;
+    };
+  };
 }
 
 
@@ -169,5 +178,77 @@ export const questions: Question[] = [
     hints: ["🔫"],
     link: "/problems/sqli/stealer",
     points: 800,
+  },
+  {
+    title: "Buffers v1",
+    category: Category.ENGINEERING,
+    description: "Nothing is impossible in C\n\n Compiled using the following:\n gcc -o buffers1 -fno-stack-protector -z execstack -no-pie buffers.c",
+    points: 200,
+    api: {
+      endpoint: "/api/problems/buffers",
+      method: "POST",
+      description: "Send your payload to the buffer overflow challenge. The payload will be passed to the program via stdin.",
+      requestFormat: {
+        type: "json",
+        example: '{ "question": "buffers1", "payload": "Yes, I happen to actually like them!" }'
+      },
+    },
+    attachments: [
+      {
+        name: "Source Code",
+        type: "file",
+        url: "/buffers/buffer1.c"
+      }
+    ]
+  },
+  {
+    title: "Buffers v2",
+    category: Category.ENGINEERING,
+    description: "Wait I can rewrite variables with overflow??\n\n Compiled using the following:\n gcc -o buffers2 -fno-stack-protector -z execstack -no-pie buffers.c",
+    points: 200,
+    api: {
+      endpoint: "/api/problems/buffers",
+      method: "POST",
+      description: "Send your payload to the buffer overflow challenge. The payload will be passed to the program via stdin.",
+      requestFormat: {
+        type: "json",
+        example: '{ "question": "buffers2", "payload": "Yes! I love cats!" }'
+      },
+    },
+    attachments: [
+      {
+        name: "Source Code",
+        type: "file",
+        url: "/buffers/buffer2.c"
+      }
+    ]
+  },
+  {
+    title: "Buffers v3",
+    category: Category.ENGINEERING,
+    description: "The win function is never called, what are you going to do about it?\n\n Compiled using the following:\n gcc -o buffers3 -fno-stack-protector -z execstack -no-pie buffers.c",
+    points: 200,
+    api: {
+      endpoint: "/api/problems/buffers",
+      method: "POST",
+      description: "Send your payload to the buffer overflow challenge. The payload will be passed to the program via stdin.",
+      requestFormat: {
+        type: "json",
+        example: '{ "question": "buffers3", "payload": "Slim Shady" }'
+      },
+    },
+    attachments: [
+      {
+        name: "Source Code",
+        type: "file",
+        url: "/buffers/buffer3.c"
+      }
+    ]
+  },
+  {
+    title: "Gaussian Reduction",
+    category: Category.MATH,
+    description: "=======================================================================\nLattice cryptography is the foundation for almost all new cryptosystems\nwhich are designed to be Quantum-Safe.\n The 'Learning with Errors' problem upon which its security is based involves \n finding the closest lattice point in an N-dimensional space to a given target point.\n\n Read more online at - https://cims.nyu.edu/~regev/papers/lwesurvey.pdf \n & https://www.youtube.com/watch?v=QDdOoYdb748\n =======================================================================\n\n Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis \n for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.\n",
+    points: 500
   }
 ];

@@ -11,28 +11,28 @@ import Link from "next/link";
 export default function RenderQuestions({ slug }: { slug: string }) {
 
   return (
-    <div className="">
-      <h1 className="text-4xl font-bold mb-8 text-center">
+    <div className="px-4 sm:px-6 md:px-8">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-8 text-center">
         {slug.split('-')
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(' ')}
       </h1>
-      <div className="flex items-center gap-4 justify-center mb-8">
+      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center mb-4 sm:mb-8">
         <FlagSubmission />
         <Link href="/problems"> <Button>Back</Button> </Link>
       </div>
       <div className="space-y-6">
         {questions.map((question, index) => (
           question.category === slug &&
-          <Card key={`forensics-${index}`} className="max-w-screen-md">
-            <CardHeader>
-              <div className="flex justify-between items-center">
-                <CardTitle>{question.title}</CardTitle>
-                <span className="rounded-full text-sm bg-secondary px-3 py-1">
+          <Card key={`forensics-${index}`} className="max-w-screen-md mx-auto">
+            <CardHeader className="space-y-3">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                <CardTitle className="text-lg sm:text-xl break-words">{question.title}</CardTitle>
+                <span className="rounded-full text-sm bg-secondary px-3 py-1 w-fit">
                   {question.points} points
                 </span>
               </div>
-              <CardDescription className="whitespace-pre-line">
+              <CardDescription className="whitespace-pre-line break-words text-wrap">
                 {question.description}
               </CardDescription>
             </CardHeader>
@@ -60,7 +60,7 @@ export default function RenderQuestions({ slug }: { slug: string }) {
               {question.attachments && question.attachments.length > 0 && (
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold">Attachments:</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {question.attachments.map((attachment, index) => (
                       <div key={index} className="flex flex-col gap-2">
                         {attachment.type === 'image' ? (
@@ -73,7 +73,7 @@ export default function RenderQuestions({ slug }: { slug: string }) {
                               className="rounded-lg w-full object-cover max-h-48 cursor-pointer hover:opacity-90 transition-opacity outline outline-2 outline-black"
                               onClick={() => window.open(attachment.url, '_blank')}
                             />
-                            <span className="text-sm mt-2 text-muted-foreground">{attachment.name}</span>
+                            <span className="text-sm mt-2 text-muted-foreground break-words">{attachment.name}</span>
                           </div>
                         ) : (
                           <Button
@@ -93,13 +93,63 @@ export default function RenderQuestions({ slug }: { slug: string }) {
                 </div>
               )}
 
-              {
-                question.link && (
-                  <Link href={question.link} className="w-full">
-                    <Button className="w-full">View Problem</Button>
-                  </Link>
-                )
-              }
+              {question.api && (
+                <div className="space-y-4 mt-4">
+                  <h3 className="text-lg font-semibold">API Documentation:</h3>
+                  <div className="bg-muted p-3 sm:p-4 rounded-md space-y-4">
+                    <div className="grid gap-3">
+                      <div className="space-y-1">
+                        <p className="text-xs font-semibold text-muted-foreground">ENDPOINT</p>
+                        <code className="block bg-background px-2 py-1 rounded text-xs sm:text-sm break-all">
+                          {question.api.endpoint}
+                        </code>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-xs font-semibold text-muted-foreground">METHOD</p>
+                        <code className="inline-block bg-background px-2 py-1 rounded text-xs sm:text-sm">
+                          {question.api.method}
+                        </code>
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-xs font-semibold text-muted-foreground">DESCRIPTION</p>
+                        <p className="text-xs sm:text-sm break-words">
+                          {question.api.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {question.api.requestFormat && (
+                      <div className="space-y-2 pt-2 border-t border-border">
+                        <p className="text-xs font-semibold text-muted-foreground">REQUEST FORMAT</p>
+                        <p className="text-xs sm:text-sm">Type: {question.api.requestFormat.type}</p>
+                        {question.api.requestFormat.example && (
+                          <pre className="bg-background p-2 rounded text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap break-all font-mono">
+                            {question.api.requestFormat.example}
+                          </pre>
+                        )}
+                      </div>
+                    )}
+
+                    {question.api.responseFormat && (
+                      <div className="space-y-2 pt-2 border-t border-border">
+                        <p className="text-xs font-semibold text-muted-foreground">RESPONSE FORMAT</p>
+                        <p className="text-xs sm:text-sm">Type: {question.api.responseFormat.type}</p>
+                        {question.api.responseFormat.example && (
+                          <pre className="bg-background p-2 rounded text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap break-all font-mono">
+                            {question.api.responseFormat.example}
+                          </pre>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {question.link && (
+                <Link href={question.link} className="w-full">
+                  <Button className="w-full">View Problem</Button>
+                </Link>
+              )}
             </CardContent>
           </Card>
         ))}

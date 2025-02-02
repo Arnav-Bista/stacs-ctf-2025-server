@@ -55,7 +55,7 @@ export default function FlagSubmissionPage() {
   };
 
   return (
-    <div className="flex items-center justify-center p-24">
+    <div className="min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Submit Flag</CardTitle>
