@@ -8,6 +8,8 @@ import { Database } from "sql.js";
 import { initializeSqlJs } from "@/utils/initSqlJs";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
+import Link from "next/link";
+import { FlagSubmission } from "@/app/submit/flag-submission";
 
 export default function SQLiTables() {
   const [username, setUsername] = useState("");
@@ -30,7 +32,7 @@ export default function SQLiTables() {
           password TEXT
         )
       `);
-
+      // Given this login
       db.run(`
         INSERT INTO users (username, name, password)
         VALUES ('tester', 'TestMaxer 900', 'password')
@@ -90,7 +92,11 @@ export default function SQLiTables() {
     }
   }
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center">
+      <div className="flex gap-2">
+        <FlagSubmission />
+        <Link href="/problems/engineering" className="mb-4"> <Button>Back</Button> </Link>
+      </div>
       <Card className="w-full">
         <CardHeader>
           <CardTitle>Login</CardTitle>

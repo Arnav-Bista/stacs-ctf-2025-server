@@ -5,10 +5,12 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Database } from "sql.js";
 import { initializeSqlJs } from "@/utils/initSqlJs";
+import { FlagSubmission } from "@/app/submit/flag-submission";
 export default function SQLiAuth() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -68,7 +70,11 @@ export default function SQLiAuth() {
     }
   }
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center relative">
+      <div className="flex gap-2">
+        <FlagSubmission />
+        <Link href="/problems/engineering" className="mb-4"> <Button>Back</Button> </Link>
+      </div>
       <Card className="w-full">
         <CardHeader>
           <CardTitle>Login</CardTitle>
