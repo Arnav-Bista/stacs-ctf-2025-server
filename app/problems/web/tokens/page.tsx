@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { initializeSqlJs } from "@/utils/initSqlJs";
 import { useEffect, useState } from "react";
 import { Database } from "sql.js";
+import { FlagSubmission } from "@/app/submit/flag-submission";
+import Link from "next/link";
 
 
 export default function XSS() {
@@ -70,6 +72,10 @@ export default function XSS() {
 
   return (
     <div className="min-h-screen flex flex-col space-y-4 items-center justify-center">
+      <div className="flex gap-2">
+        <FlagSubmission />
+        <Link href="/problems/engineering" className="mb-4"> <Button>Back</Button> </Link>
+      </div>
       <Card className="w-full max-w-screen-md">
         <CardHeader>
           <CardTitle>Admin Post: Feedback for the Server</CardTitle>
@@ -77,20 +83,20 @@ export default function XSS() {
         </CardHeader>
         <CardContent>
           <p>
-            Hello everyone. It's Mausemaster. I've just created this new website and hopefully it will be the new face of 2m2t (2 mause 2 tools).
+            Hello everyone. It&apos;s Mausemaster. I&apos;ve just created this new website and hopefully it will be the new face of 2m2t (2 mause 2 tools).
           </p>
           <br />
           <p>
-            I'm currently working on the server and I'm planning to add some new features. I've just made this comment section with some basic db stuff, so feel free to leave a comment.
+            I&apos;m currently working on the server and I&apos;m planning to add some new features. I&apos;ve just made this comment section with some basic db stuff, so feel free to leave a comment.
           </p>
           <br />
           <p>
             Since you guys are 100X Frontend developers, you can put some HTML!
-            But I've disabled the script tags for security reasons. Also, I'm not clicking any links you guys post here.
+            But I&apos;ve disabled the script tags for security reasons. Also, I&apos;m not clicking any links you guys post here.
           </p>
           <br />
           <p>
-            I'll be checking back on this every minute!
+            I&apos;ll be checking back on this every minute!
           </p>
 
           <br />
@@ -126,8 +132,12 @@ export default function XSS() {
               <Button type="submit">
                 Post Comment
               </Button>
-              <Button type="button" onClick={simulateAdminBot} className="mx-4">
-                Simulate Admin Bot
+              <Button
+                type="button"
+                onClick={simulateAdminBot}
+                className="mx-4"
+              >
+                Notify Mausemaster
               </Button>
             </form>
 
