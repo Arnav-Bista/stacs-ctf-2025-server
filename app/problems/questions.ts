@@ -250,5 +250,12 @@ export const questions: Question[] = [
     category: Category.MATH,
     description: "=======================================================================\nLattice cryptography is the foundation for almost all new cryptosystems\nwhich are designed to be Quantum-Safe.\n The 'Learning with Errors' problem upon which its security is based involves \n finding the closest lattice point in an N-dimensional space to a given target point.\n\n Read more online at - https://cims.nyu.edu/~regev/papers/lwesurvey.pdf \n & https://www.youtube.com/watch?v=QDdOoYdb748\n =======================================================================\n\n Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis \n for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.\n",
     points: 500
+  },
+  {
+    title: "I can write comments?!",
+    description: "Mausemaster from 2m2t (2 mause 2 tools) just made a new comment section which he will be checking!",
+    points: 200,
+    link: "/problems/web/tokens",
+    category: Category.ENGINEERING
   }
 ];
