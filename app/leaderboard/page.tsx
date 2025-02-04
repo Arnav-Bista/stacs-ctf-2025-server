@@ -47,29 +47,29 @@ function transformData(rawData: DataPoint[]): TransormedData[] {
     }))
   }));
 
-    // Create a map for easy team data access
-    const teamMap = new Map(data.map(team => [team.name, team]));
-    
-    // Accumulate points for each team
-    let currentPoints: { [key: string]: number } = {};
-    timestamps.forEach(timestamp => {
-      // Get all entries for this timestamp
-      const entries = rawData.filter(
-        entry => new Date(entry.found_at).getTime() <= timestamp
-      );
-    
-      // Calculate cumulative points for each team up to this timestamp
-      teams.forEach(teamName => {
-        currentPoints[teamName] = entries
-          .filter(entry => entry.name === teamName)
-          .reduce((sum, entry) => sum + entry.points, 0);
-    
-        // Find the data point for this timestamp and update it
-        const teamData = teamMap.get(teamName)!;
-        const dataPoint = teamData.data.find(d => d.found_at === timestamp);
-        if (dataPoint) {
-          dataPoint.points = currentPoints[teamName];
-        }
+  // Create a map for easy team data access
+  const teamMap = new Map(data.map(team => [team.name, team]));
+
+  // Accumulate points for each team
+  let currentPoints: { [key: string]: number } = {};
+  timestamps.forEach(timestamp => {
+    // Get all entries for this timestamp
+    const entries = rawData.filter(
+      entry => new Date(entry.found_at).getTime() <= timestamp
+    );
+
+    // Calculate cumulative points for each team up to this timestamp
+    teams.forEach(teamName => {
+      currentPoints[teamName] = entries
+        .filter(entry => entry.name === teamName)
+        .reduce((sum, entry) => sum + entry.points, 0);
+
+      // Find the data point for this timestamp and update it
+      const teamData = teamMap.get(teamName)!;
+      const dataPoint = teamData.data.find(d => d.found_at === timestamp);
+      if (dataPoint) {
+        dataPoint.points = currentPoints[teamName];
+      }
     });
   });
 
@@ -133,8 +133,8 @@ export default function Leaderboard() {
                     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                   }}
                   label={{
-                      value: 'Time',
-                    }}
+                    value: 'Time',
+                  }}
                 />
                 <YAxis
                   className="text-sm text-muted-foreground"
@@ -145,13 +145,17 @@ export default function Leaderboard() {
                     className: "text-muted-foreground"
                   }}
                 />
-                <Tooltip 
+                <Tooltip
                   contentStyle={{
                     backgroundColor: 'hsl(var(--card))',
                     border: '1px solid hsl(var(--border))',
                     borderRadius: '0.5rem',
+                    color: 'hsl(var(--foreground))'
                   }}
                   labelClassName="text-muted-foreground"
+                  itemStyle={{
+                    color: 'hsl(var(--foreground))'
+                  }}
                   labelFormatter={(value) => {
                     const date = new Date(value);
                     return date.toLocaleString('en-US', {
@@ -160,8 +164,8 @@ export default function Leaderboard() {
                       hour12: true
                     });
                   }}
-                itemSorter={(a) => (typeof a.value === 'number' ? -a.value : 0)}
-                formatter={(value, name) => [`${value} pts`, name]}
+                  itemSorter={(a) => (typeof a.value === 'number' ? -a.value : 0)}
+                  formatter={(value, name) => [`${value} pts`, name]}
                 />
                 {currentStandings.map((standing) => {
                   const team = transformedData.find(t => t.name === standing.name)!;
@@ -172,7 +176,7 @@ export default function Leaderboard() {
                       data={team.data}
                       dataKey="points"
                       name={team.name}
-                      stroke={selectedTeam === team.name ? '#ffa07a' : '#000000'}
+                      stroke={selectedTeam === team.name ? '#ffa07a' : 'hsl(var(--chart-1))'}
                       strokeWidth={selectedTeam === team.name ? 3 : 1.5}
                       dot={selectedTeam === team.name}
                       activeDot={{ r: 8 }}
@@ -206,7 +210,7 @@ export default function Leaderboard() {
                   <div
                     className="w-3 h-3 rounded-full"
                     style={{
-                      backgroundColor: selectedTeam === team.name ? '#ffa07a' : '#000000'
+                      backgroundColor: selectedTeam === team.name ? '#ffa07a' : 'hsl(var(--chart-1))'
                     }}
                   />
                   <span>{team.name}</span>

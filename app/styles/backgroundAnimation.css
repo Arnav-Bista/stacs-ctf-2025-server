@@ -4,14 +4,20 @@
 
 .murraybg {
   fill: none;
-  stroke: black;
+  stroke: hsl(var(--foreground));
   opacity: 0.03;
   stroke-width: 0.5;
   stroke-dasharray: var(--path-length);
   stroke-dashoffset: var(--path-length);
 
   animation: a 100s linear infinite;
+}
 
+@media (prefers-color-scheme: dark) {
+  .murraybg {
+    stroke: hsl(var(--foreground));
+    opacity: 0.06;
+  }
 }
 
 @keyframes a {
