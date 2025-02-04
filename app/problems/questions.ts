@@ -4,6 +4,8 @@ export enum Category {
   MISC = "misc",
   ENGINEERING = "engineering",
   MATH = "math-and-cryptography",
+  LATTICE = "lattice",
+  SYMMETRIC = "symmetric",
 }
 
 export interface Question {
@@ -29,6 +31,7 @@ export interface Question {
   };
 }
 
+// I know this isnt the best way of doing it, but im a lil lazy to think of a more efficient way 
 
 export const questions: Question[] = [
   {
@@ -119,12 +122,6 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "One Time Pads Twice",
-    description: "I've just learnt that One Time Pads are mathematically secure!\nGood luck decrypting the following message 😎. \n\n You know what? I'll even encrypt your flag here!\n",
-    points: 500,
-    category: Category.MATH,
-  },
-  {
     title: "gcvc'z i sypt pizxi",
     description: "",
     points: 400,
@@ -166,15 +163,15 @@ export const questions: Question[] = [
   {
     title: "SQLi V1.1",
     category: Category.ENGINEERING,
-    description: "So can login and bypass the authentication system... but can you find the flag?",
-    hints: ["It's a Sqlite database"],
+    description: "So can login and bypass the authentication system... but can you find the flag?\n\nUse this login:\ntester\npassword",
+    hints: ["It's a sqlite database"],
     link: "/problems/sqli/tables",
     points: 500,
   },
   {
     title: "SQLi V2.0",
     category: Category.ENGINEERING,
-    description: "You've just gotten news that someone else is changing their password...",
+    description: "You've just gotten news that someone else is changing their password...\n\nUse this login:\ntester\npassword",
     hints: ["🔫"],
     link: "/problems/sqli/stealer",
     points: 800,
@@ -247,8 +244,14 @@ export const questions: Question[] = [
   },
   {
     title: "Gaussian Reduction",
-    category: Category.MATH,
-    description: "=======================================================================\nLattice cryptography is the foundation for almost all new cryptosystems\nwhich are designed to be Quantum-Safe.\n The 'Learning with Errors' problem upon which its security is based involves \n finding the closest lattice point in an N-dimensional space to a given target point.\n\n Read more online at - https://cims.nyu.edu/~regev/papers/lwesurvey.pdf \n & https://www.youtube.com/watch?v=QDdOoYdb748\n =======================================================================\n\n Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis \n for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.\n",
+    category: Category.LATTICE,
+    description: "Lattices are formed using a set of 'basis vectors', and each point in a lattice is found using a linear combination of these basis vectors.\n\n The simplest lattice would be one where the points are orthogonal to one another, where all the point's inner products equal 0, this is called an 'orthogonal basis'.\n If all the vectors are unit vectors as well, the basis is an 'orthonormal basis'.\n We can generate an orthonormal basis from any set of non-orthogonal, non-unit vectors via an algorithm called the Gram-Schmidt process.\n\n Research and write code to produce an orthonormal basis for these vectors, using the Gram-Schmidt process.\n [3, 4, 0, -2]\n [2, -3, 1, 4]\n [1, 0, 7, 9]\n [6, 1, -1, -5]\n\n The flag is the first 7 significant digits of the first component of the fourth vector in the final basis. \n\n DO NOT ROUND YOUR ANSWER.",
+    points: 500
+  },
+  {
+    title: "Gaussian Reduction",
+    category: Category.LATTICE,
+    description: "Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis \n for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.\n",
     points: 500
   },
   {
@@ -257,5 +260,22 @@ export const questions: Question[] = [
     points: 200,
     link: "/problems/web/tokens",
     category: Category.ENGINEERING
+  },
+  {
+    title: "AES MD5",
+    description: "I've built an AES_ECB encryption system that uses MD5 to make my short keys harder to figure out!\n Because of this, I only have to use one word from my dictionary so I can cut costs on SSDs... Take that Big M.2!\n\n I bet you can't extract my key from this ciphertext:\n 8f3512874323615b95e3d48ba2b6f7f431dbbfff0322b1b29d3ac97c475b0f3afa4dac39426b8a7ef6dbaf6ea179599abb626e8d334e9fd8d3fd071305feaaee\n\n My ultra secret dictionary is also in this directory.\n Normally I wouldn't provide it but I'm feeling weirdly cocky and arrogant with regards to my code quality today, HAH!",
+    points: 500,
+    category: Category.SYMMETRIC,
+    hints: [
+      "Use PyCryptoDome library for AES functions - 'pip install pycryptodome'",
+      "Use hashlib for MD5, included in standard library - 'import hashlib'"
+    ],
+    attachments: [
+      {
+        type: "file",
+        name: "dict.txt",
+        url: "/dict.txt"
+      }
+    ]
   }
 ];
