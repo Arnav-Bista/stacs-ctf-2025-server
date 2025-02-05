@@ -4,16 +4,39 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { initializeSqlJs } from "@/utils/initSqlJs";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Database } from "sql.js";
 import { FlagSubmission } from "@/app/submit/flag-submission";
 import Link from "next/link";
 
+const Comments = memo(
+  function Comments({ isLoading, db, updateCounter }: { isLoading: boolean, db: Database | null, updateCounter: number }) {
+    return (
+      <div className="space-y-4" id="comments">
+        {!isLoading && db && (() => {
+          const comments = db.exec('SELECT * FROM comments ORDER BY created_at DESC');
+          return comments[0]?.values?.map((comment, index) => (
+            <Card key={index}>
+              <CardHeader className="py-4">
+                <CardDescription>
+                  {new Date(comment[2] as string).toLocaleString()}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p dangerouslySetInnerHTML={{ __html: comment[1] as TrustedHTML }} className="whitespace-pre-wrap break-words" />
+              </CardContent>
+            </Card>
+          )) || null;
+        })()}
+      </div>
+    );
+  });
 
 export default function XSS() {
   const [db, setDb] = useState<Database | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [counter, setCounter] = useState(0);
+  const [isSimulating, setIsSimulating] = useState(false);
 
   useEffect(() => {
     window.localStorage.clear();
@@ -38,6 +61,7 @@ export default function XSS() {
   }, []);
 
   async function simulateAdminBot() {
+    setIsSimulating(true);
     const iframe = document.createElement('iframe');
     iframe.srcdoc = `
       <html>
@@ -68,6 +92,7 @@ export default function XSS() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     iframe.remove();
     localStorage.clear();
+    setIsSimulating(false);
   }
 
   return (
@@ -101,7 +126,7 @@ export default function XSS() {
 
           <br />
           <p className="text-xs text-muted-foreground">
-            (the admin bot is simulated via an iframe, it cannot make requests outside of this domain)
+            (the admin bot is simulated via an iframe, it cannot make requests outside of this domain. This also means the admin simulation will run on your browser)
           </p>
 
         </CardContent>
@@ -136,29 +161,14 @@ export default function XSS() {
                 type="button"
                 onClick={simulateAdminBot}
                 className="mx-4"
+                disabled={isSimulating}
               >
                 Notify Mausemaster
               </Button>
             </form>
 
             {/* Comments display */}
-            <div className="space-y-4" id="comments">
-              {!isLoading && db && (() => {
-                const comments = db.exec('SELECT * FROM comments ORDER BY created_at DESC');
-                return comments[0]?.values?.map((comment, index) => (
-                  <Card key={index}>
-                    <CardHeader className="py-4">
-                      <CardDescription>
-                        {new Date(comment[2] as string).toLocaleString()}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p dangerouslySetInnerHTML={{ __html: comment[1] as TrustedHTML }} className="whitespace-pre-wrap break-words" />
-                    </CardContent>
-                  </Card>
-                )) || null;
-              })()}
-            </div>
+            <Comments isLoading={isLoading} db={db} updateCounter={counter} />
           </div>
         </CardFooter>
       </Card>
