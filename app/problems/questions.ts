@@ -142,7 +142,7 @@ export const questions: Question[] = [
   },
   {
     title: "Chinese Remainder Theorem",
-    description: "The Chinese Remainder Theorem gives a unique solution to a system of linear congruences, provided that the moduli of said congruences are coprime.\n\n\nI.e. Given a set of arbitrary integers a_i, and a set of pairwise coprime integers p_i, given the following linear congruences hold:\n\n    x = a_1 mod p_1\n    x = a_2 mod p_2\n    x = a_3 mod p_3\n        ...\n    x = a_n mod p_n\n\nWe can get a solution: x = a mod N, where N is p_1 * p_2 * p_3 * ... * p_n.\n\n\nGiven the following congruences:\n\n    x = 4 mod 5\n    x = 5 mod 17\n    x = 34 mod 37\n\nFind the values of x & a such that: x = a mod 3145, and x satisfies the given congruences",
+    description: "The Chinese Remainder Theorem gives a unique solution to a system of linear congruences, provided that the moduli of said congruences are coprime.\n\n\nI.e. Given a set of arbitrary integers a_i, and a set of pairwise coprime integers p_i, given the following linear congruences hold:\n\n    x = a_1 mod p_1\n    x = a_2 mod p_2\n    x = a_3 mod p_3\n        ...\n    x = a_n mod p_n\n\nWe can get a solution: x = a mod N, where N is p_1 * p_2 * p_3 * ... * p_n.\n\n\nGiven the following congruences:\n\n    x = 4 mod 5\n    x = 5 mod 17\n    x = 34 mod 37\n\nFind the values of x & a such that: x = a mod 3145, and x satisfies the given congruences. \n\nProvide your answer in the form 'x = N, a = M'",
     points: 300,
     category: Category.MATH
   },
@@ -249,16 +249,23 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "Gaussian Reduction",
+    title: "The Gram-Schmidt process",
     category: Category.LATTICE,
-    description: "Lattices are formed using a set of 'basis vectors', and each point in a lattice is found using a linear combination of these basis vectors.\n\n The simplest lattice would be one where the points are orthogonal to one another, where all the point's inner products equal 0, this is called an 'orthogonal basis'.\n If all the vectors are unit vectors as well, the basis is an 'orthonormal basis'.\n We can generate an orthonormal basis from any set of non-orthogonal, non-unit vectors via an algorithm called the Gram-Schmidt process.\n\n Research and write code to produce an orthonormal basis for these vectors, using the Gram-Schmidt process.\n [3, 4, 0, -2]\n [2, -3, 1, 4]\n [1, 0, 7, 9]\n [6, 1, -1, -5]\n\n The flag is the first 7 significant digits of the first component of the fourth vector in the final basis. \n\n DO NOT ROUND YOUR ANSWER.",
+    description: "Lattices are formed using a set of 'basis vectors', and each point in a lattice is found using a linear combination of these basis vectors.\n\n The simplest lattice would be one where the points are orthogonal to one another, where all the point's inner products equal 0, this is called an 'orthogonal basis'.\n If all the vectors are unit vectors as well, the basis is an 'orthonormal basis'.\n We can generate an orthonormal basis from any set of non-orthogonal, non-unit vectors via an algorithm called the Gram-Schmidt process.\n\n Research and write code to produce an orthonormal basis for these vectors, using the Gram-Schmidt process.\n [3, 4, 0, -2]\n [2, -3, 1, 4]\n [1, 0, 7, 9]\n [6, 1, -1, -5]\n\n The flag is the first 7 significant digits, of the first component, of the fourth vector in the final basis. \n\n DO NOT ROUND YOUR ANSWER.",
+    hints:
+        ["Try first to generate an *orthogonal* basis, before an orthonormal basis.",
+        "Create separate functions for vector-vector operations and scalar-vector operations.",
+        "Wikipedia is your friend."],
     points: 500
   },
   {
-    title: "Gaussian Reduction",
+    title: "Gaussian Lattice Reduction",
     category: Category.LATTICE,
-    description: "Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis \n for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.\n",
-    points: 500
+    description: "Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.",
+    points: 500,
+    hints:
+        ["Gaussian reduction requires an algorithm to be carried out sequentially on each vector. Split up the process into functions.",
+        "Again, Wikipedia is your friend."]
   },
   {
     title: "I can write comments?!",
@@ -269,7 +276,7 @@ export const questions: Question[] = [
   },
   {
     title: "AES MD5",
-    description: "I've built an AES_ECB encryption system that uses MD5 to make my short keys harder to figure out!\n Because of this, I only have to use one word from my dictionary so I can cut costs on SSDs... Take that Big M.2!\n\n I bet you can't extract my key from this ciphertext:\n 8f3512874323615b95e3d48ba2b6f7f431dbbfff0322b1b29d3ac97c475b0f3afa4dac39426b8a7ef6dbaf6ea179599abb626e8d334e9fd8d3fd071305feaaee\n\n My ultra secret dictionary is also in this directory.\n Normally I wouldn't provide it but I'm feeling weirdly cocky and arrogant with regards to my code quality today, HAH!",
+    description: "I've built an AES_ECB encryption system that uses MD5 hashing to make my short keys harder to figure out!\n Because of this, I only have to use one word from my dictionary so I can cut costs on SSDs... Take that Big M.2!\n\n I bet you can't extract my key from this ciphertext:\n 8f3512874323615b95e3d48ba2b6f7f431dbbfff0322b1b29d3ac97c475b0f3afa4dac39426b8a7ef6dbaf6ea179599abb626e8d334e9fd8d3fd071305feaaee\n\n My ultra secret dictionary is also here, take a look, it's not like you'd get anything from it!.\n Normally I wouldn't provide it but I'm feeling weirdly cocky and arrogant with regards to my code quality today.",
     points: 500,
     category: Category.SYMMETRIC,
     hints: [
@@ -289,25 +296,18 @@ export const questions: Question[] = [
     title: "AES ORACLE",
     description:
       `I bet you can't crack *this* AES implementation. 
-This time I won't even provide possible keys!
-
-Use 'from encrypt import encrypt' in order to use the provided code in your own project.
-
-Hints:
-The padding in the encryption is very important
-Explore how it relates to ECB mode of AES and how this might affect the final output from encryption
-You don't need to worry about the key, only the flag...
-
-
-The encryption function is the attachment 
-`,
-
+This time I won't even provide possible keys!`,
     points: 500,
     category: Category.SYMMETRIC,
+    hints: [
+        "The padding in the encryption is very important",
+        "Explore how it relates to ECB mode of AES and how this might affect the final output from encryption",
+        "You don't need to worry about the key, only the flag..."
+    ],
     attachments: [
       {
         type: "file",
-        name: "The Encryption Function",
+        name: "The encryption function in question",
         url: "/encrypt.py"
       }
     ],
