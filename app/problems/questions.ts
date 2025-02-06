@@ -8,27 +8,33 @@ export enum Category {
   SYMMETRIC = "symmetric",
 }
 
+export interface Attachment {
+  name: string;
+  type: 'image' | 'file';
+  url: string;
+}
+
+export interface RequestFormat {
+  type: 'json' | 'text' | 'binary';
+  example?: string;
+}
+
+export interface API {
+  endpoint: string;
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE';
+  description: string;
+  requestFormat?: RequestFormat;
+}
+
 export interface Question {
   category: Category;
   title: string;
   description: string;
   hints?: string[];
   points: number;
-  attachments?: {
-    name: string;
-    type: 'image' | 'file';
-    url: string;
-  }[];
+  attachments?: Attachment[];
   link?: string;
-  api?: {
-    endpoint: string;
-    method: 'GET' | 'POST' | 'PUT' | 'DELETE';
-    description: string;
-    requestFormat?: {
-      type: 'json' | 'text' | 'binary';
-      example?: string;
-    };
-  };
+  api?: API;
 }
 
 // I know this isnt the best way of doing it, but im a lil lazy to think of a more efficient way 
@@ -277,5 +283,42 @@ export const questions: Question[] = [
         url: "/dict.txt"
       }
     ]
+  },
+  {
+
+    title: "AES ORACLE",
+    description:
+      `I bet you can't crack *this* AES implementation. 
+This time I won't even provide possible keys!
+
+Use 'from encrypt import encrypt' in order to use the provided code in your own project.
+
+Hints:
+The padding in the encryption is very important
+Explore how it relates to ECB mode of AES and how this might affect the final output from encryption
+You don't need to worry about the key, only the flag...
+
+
+The encryption function is the attachment 
+`,
+
+    points: 500,
+    category: Category.SYMMETRIC,
+    attachments: [
+      {
+        type: "file",
+        name: "The Encryption Function",
+        url: "/encrypt.py"
+      }
+    ],
+    api: {
+      method: "POST",
+      endpoint: "/aes-oracle",
+      description: "A Flask server is running the encryption function. Send your payload to the server to get the encrypted payload.",
+      requestFormat: {
+        type: "json",
+        example: '{ "data": "datayouwantencrypted" }'
+      }
+    }
   }
 ];

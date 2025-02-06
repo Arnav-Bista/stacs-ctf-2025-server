@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { FlagSubmission } from "@/app/submit/flag-submission";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 export default function RenderQuestions({ slug }: { slug: string }) {
 
@@ -36,7 +37,7 @@ export default function RenderQuestions({ slug }: { slug: string }) {
                 {question.description}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-4 mb-4">
               {question.hints && question.hints.length > 0 && (
                 <Collapsible>
                   <CollapsibleTrigger asChild>
@@ -123,9 +124,17 @@ export default function RenderQuestions({ slug }: { slug: string }) {
                         <p className="text-xs font-semibold text-muted-foreground">REQUEST FORMAT</p>
                         <p className="text-xs sm:text-sm">Type: {question.api.requestFormat.type}</p>
                         {question.api.requestFormat.example && (
-                          <pre className="bg-background p-2 rounded text-xs sm:text-sm overflow-x-auto whitespace-pre-wrap break-all font-mono">
-                            {question.api.requestFormat.example}
-                          </pre>
+                          <div className="bg-background p-2 rounded overflow-x-auto">
+                            <ReactMarkdown
+                              className="text-xs sm:text-sm font-mono"
+                              components={{
+                                pre: ({ children }) => <pre className="whitespace-pre-wrap break-all">{children}</pre>,
+                                code: ({ children }) => <code>{children}</code>
+                              }}
+                            >
+                              {'```json\n' + question.api.requestFormat.example + '\n```'}
+                            </ReactMarkdown>
+                          </div>
                         )}
                       </div>
                     )}

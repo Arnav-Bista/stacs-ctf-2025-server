@@ -126,7 +126,10 @@ export default function XSS() {
 
           <br />
           <p className="text-xs text-muted-foreground">
-            (the admin bot is simulated via an iframe, it cannot make requests outside of this domain. This also means the admin simulation will run on your browser)
+            The admin bot is simulated via an iframe, it cannot make requests outside of this domain. This also means the admin simulation will run on your browser.
+            <br />
+            <br />
+            All the iframe will do is setup whatever it means to be an 'admin' and rerender the comments section.
           </p>
 
         </CardContent>
