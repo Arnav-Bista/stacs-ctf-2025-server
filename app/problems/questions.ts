@@ -102,6 +102,22 @@ export const questions: Question[] = [
     ]
   },
   {
+      title: "Newjeans? Yeah I've heard of them...",
+      description: "I bought these new jeans the other day from my black market connection, where is the contraband flag that I ordered? \nI called back but the dunce didn't pick up and told me I've already got it???? \n\nHelp me out here please!",
+      points: 500,
+      category: Category.FORENSICS,
+      hints:
+          ["We already have the flag? It must be in the jeans!",
+          "I guess I'll turn them inside out... Huh? There's an extra zipper?"],
+      attachments: [
+          {
+              name: "newjeans.png",
+              type: "image",
+              url: "/newjeans.png"
+          }
+      ]
+  },
+  {
     title: "Weird Audio?",
     description: "This vine boom sound effect I downloaded got some weird sounding bits...",
     points: 150,
