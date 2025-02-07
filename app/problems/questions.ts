@@ -330,7 +330,7 @@ This time I won't even provide possible keys!`,
     api: {
       method: "POST",
       endpoint: "/aes-oracle",
-      description: "A Flask server is running the encryption function. Send your payload to the server to get the encrypted payload.",
+      description: ["A Flask server is running the encryption function. Send your payload to the server to get the encrypted payload.", "\n\nSend your data in this format: 'bytes.hex(your_data_here.encode())' \n\nThen send as a json using 'requests.post(url, json = 'your_json_here')'"],
       requestFormat: {
         type: "json",
         example: '{ "data": "datayouwantencrypted" }'
