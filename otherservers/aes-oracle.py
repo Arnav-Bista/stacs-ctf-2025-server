@@ -27,7 +27,7 @@ def encrypt_handler():
             return jsonify({"error": "Missing 'data' field"}), 400
 
         plaintext = data['data']
-        result = encrypt(bytes.hex(plaintext.encode()))
+        result = encrypt(plaintext)
 
         return jsonify({"data": result})
     except Exception as e:
