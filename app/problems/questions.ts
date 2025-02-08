@@ -26,7 +26,7 @@ export interface API {
   requestFormat?: RequestFormat;
 }
 
-export interface Question {
+export type Question = {
   category: Category;
   title: string;
   description: string;
@@ -35,6 +35,8 @@ export interface Question {
   attachments?: Attachment[];
   link?: string;
   api?: API;
+  lockedPassword?: string;
+  lockedHint?: string;
 }
 
 // I know this isnt the best way of doing it, but im a lil lazy to think of a more efficient way 
@@ -355,5 +357,43 @@ Then send as a json using: requests.post(url, json = your_json_here)`,
         example: '{ "data": "datayouwantencrypted" }'
       }
     }
+  },
+  {
+    title: "Uncrackable",
+    points: 500,
+    category: Category.SYMMETRIC,
+    description: `I've just learnt about the One Time Pad system! Its literally uncrackable!!!
+
+Ha! Good luck cracking this one! 
+
+
+You know what? To rub salt in the wound, I'll even give you another one! 😎`,
+    attachments: [
+      {
+        type: "image",
+        name: "cipher1.png",
+        url: "/cipher1.png"
+      },
+      {
+        type: "image",
+        name: "cipher2.png",
+        url: "/cipher2.png"
+      }
+    ]
+  },
+  {
+    title: "Insecure Transmission",
+    description: `Thanks to your efforts in cracking the encryption systems, we've been able to get a hold of some super high level secrets...`,
+    points: 1000,
+    category: Category.SYMMETRIC,
+    lockedPassword: "TEST",
+    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    attachments: [
+      {
+        type: "file",
+        name: "transmission.txt",
+        url: "/transmission.txt"
+      }
+    ]
   }
 ];
