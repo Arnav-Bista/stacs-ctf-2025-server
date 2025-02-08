@@ -41,7 +41,7 @@ export interface Question {
 
 export const questions: Question[] = [
   {
-    title: "My Password V1",
+    title: "My Password v1",
     description: "I saw how this dude hid his password inside an image and showed it on stream!\nWell, all I've got is a text editor with me...\n\n\nNote to my future self: I love cats!",
     hints: ["Text Editor?"],
     points: 100,
@@ -55,7 +55,7 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "My Password V2",
+    title: "My Password v2",
     description: "Time for a little more security!",
     points: 500,
     category: Category.FORENSICS,
@@ -68,7 +68,7 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "My Password V3",
+    title: "My Password v3",
     description: "You might think you're smart for solving the previous puzzle, but try this!\nI've mixed my orignal password with the obfuscation_img provided, and now my password is completely invisible!!\nNot so easy now, huh?",
     hints: [
       "Use the python Pillow library for image processing."
@@ -89,8 +89,8 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "Rainbolt, I challenge you!",
-    description: "Dear Rainbolt,\n\n I bet you can't guess where I am just given this picture of a sky.\n\n Sincerely,\n STACS Devs",
+    title: "DOXX THIS B****!",
+    description: "I may have flamed a bit to hard in my ranked game...",
     points: 200,
     category: Category.FORENSICS,
     attachments: [
@@ -118,7 +118,7 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "Weird Audio?",
+    title: "https://us-tuna-sounds-images.voicemod.net/5b23cd9b-0c2d-471f-8589-9e6bdee73d4c-1680393318917.jpeg",
     description: "This vine boom sound effect I downloaded got some weird sounding bits...",
     points: 150,
     category: Category.FORENSICS,
@@ -158,7 +158,7 @@ export const questions: Question[] = [
   },
   {
     title: "Chinese Remainder Theorem",
-    description: "The Chinese Remainder Theorem gives a unique solution to a system of linear congruences, provided that the moduli of said congruences are coprime.\n\n\nI.e. Given a set of arbitrary integers a_i, and a set of pairwise coprime integers p_i, given the following linear congruences hold:\n\n    x = a_1 mod p_1\n    x = a_2 mod p_2\n    x = a_3 mod p_3\n        ...\n    x = a_n mod p_n\n\nWe can get a solution: x = a mod N, where N is p_1 * p_2 * p_3 * ... * p_n.\n\n\nGiven the following congruences:\n\n    x = 4 mod 5\n    x = 5 mod 17\n    x = 34 mod 37\n\nFind the values of x & a such that: x = a mod 3145, and x satisfies the given congruences. \n\nProvide your answer in the form 'x = N, a = M'",
+    description: "The Chinese Remainder Theorem is the basis for Ring encryption, a vital process which allows for untracable repudiation (say for whistleblowers), it gives a unique solution to a system of linear congruences, provided that the moduli of said congruences are coprime.\n\n\nI.e. Given a set of arbitrary integers a_i, and a set of pairwise coprime integers p_i, given the following linear congruences hold:\n\n    x = a_1 mod p_1\n    x = a_2 mod p_2\n    x = a_3 mod p_3\n        ...\n    x = a_n mod p_n\n\nWe can get a solution: x = a mod N, where N is p_1 * p_2 * p_3 * ... * p_n.\n\n\nGiven the following congruences:\n\n    x = 4 mod 5\n    x = 5 mod 17\n    x = 34 mod 37\n\nFind the values of x & a such that: x = a mod 3145, and x satisfies the given congruences. \n\nProvide your answer in the form 'x = N, a = M'",
     points: 300,
     category: Category.MATH
   },
@@ -176,14 +176,14 @@ export const questions: Question[] = [
     ]
   },
   {
-    title: "SQLi V1.0",
+    title: "SQLi v1",
     category: Category.ENGINEERING,
     description: "This is my first time learning SQL, checkout this simple auth page I made!\nBut it'll be of no use to you since you dont know my credentials 😎",
     link: "/problems/sqli/basic-auth",
     points: 300,
   },
   {
-    title: "SQLi V1.1",
+    title: "SQLi v2",
     category: Category.ENGINEERING,
     description: "So can login and bypass the authentication system... but can you find the flag?\n\nUse this login:\ntester\npassword",
     hints: ["It's a sqlite database"],
@@ -191,7 +191,7 @@ export const questions: Question[] = [
     points: 500,
   },
   {
-    title: "SQLi V2.0",
+    title: "SQLi v3",
     category: Category.ENGINEERING,
     description: "You've just gotten news that someone else is changing their password...\n\nUse this login:\ntester\npassword",
     hints: ["🔫"],
@@ -275,7 +275,7 @@ export const questions: Question[] = [
     points: 500
   },
   {
-    title: "Gaussian Lattice Reduction",
+    title: "Gaussian Reduction",
     category: Category.LATTICE,
     description: "Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.",
     points: 500,
@@ -291,8 +291,22 @@ export const questions: Question[] = [
     category: Category.ENGINEERING
   },
   {
-    title: "AES MD5",
-    description: "I've built an AES_ECB encryption system that uses MD5 hashing to make my short keys harder to figure out!\n Because of this, I only have to use one word from my dictionary so I can cut costs on SSDs... Take that Big M.2!\n\n I bet you can't extract my key from this ciphertext:\n 8f3512874323615b95e3d48ba2b6f7f431dbbfff0322b1b29d3ac97c475b0f3afa4dac39426b8a7ef6dbaf6ea179599abb626e8d334e9fd8d3fd071305feaaee\n\n My ultra secret dictionary is also here, take a look, it's not like you'd get anything from it!.\n Normally I wouldn't provide it but I'm feeling weirdly cocky and arrogant with regards to my code quality today.",
+    title: "THERE CAN ONLY BE ONE",
+    description: "I've always wondered why people use the product of two primes as a modulus for RSA. \nWouldn't it be *so much*, literally twice as simple if we just used one? \nThink about all that sweet processing power we'd save. Why has no one thought of this?? \n\nI bet you can't get my flag from this encrypted ciphertext. \nI'll even give you the prime modulus I'm that confident! \n\nExponent: \ne = 65537 \n\nPrime Modulus: \nn = 171731371218065444125482536302245915415603318380280392385291836472299752747934607246477508507827284075763910264995326010251268493630501989810855418416643352631102434317900028697993224868629935657273062472544675693365930943308086634291936846505861203914449338007760990051788980485462592823446469606824421932591 \n\nEncrypted Ciphertext: \n13829909971889644924790568818571784528797417477792978927034694285330969327915990825983910776123122360054812019973736417749652884278423148745913808564996953719743791174719326978138722252297395877091537757360608498139227274417309049643225326140020616249558538065652338412499938849688963840148765702790180654815 \n\nAfter you have decrypted the ciphertext, convert the string of numbers into bytes to retrieve the flag!"
+    points: 500,
+    category: Category.MATH
+  },
+  {
+    title: "Sometimes bigger is definitely better..."
+    description: "I'm planning on implementing RSA into my system, but since I have an unhealthy distrust in authority and a raging ego - I'm not going to listen whatsoever to the advice to use 2048 bits of security. \n\nMy program uses two 100 bit primes and an 8 bits exponent for a total of 1600 bits of security. \nBeat that NIST. \n\nModulus n: \n984994081290620368062168960884976209711107645166770780785733 \n\nExponent e: \n65537 \n\nCiphertext: \n915674621072223460624529383442331899587647161451973453046598 \n\n\nOnce you have decrypted the ciphertext, convert it from a long into bytes to retrieve the flag.",
+    points: 500,
+    category: Category.MATH,
+    hints:
+      ["Recommended to use PyCryptoDome and FactorDB for this question. The long_to_bytes and bytes_to_long function from PyCryptoDome are good for that specific conversion."]
+  },
+  {
+    title: "Just hashing it out",
+    description: "I've built an AES_ECB encryption system that uses MD5 hashing to make my short keys harder to figure out!\n Because of this, I only have to use one word from my dictionary so I can cut costs on SSDs... Take that Big M.2!\n\n I bet you can't extract my key from this ciphertext:\n 8f3512874323615b95e3d48ba2b6f7f431dbbfff0322b1b29d3ac97c475b0f3afa4dac39426b8a7ef6dbaf6ea179599abb626e8d334e9fd8d3fd071305feaaee\n\n My ultra secret dictionary is also here, take a look, it's not like you'd get anything from it!.\n Normally I wouldn't provide it but I'm feeling weirdly cocky and arrogant today.",
     points: 500,
     category: Category.SYMMETRIC,
     hints: [
@@ -309,10 +323,9 @@ export const questions: Question[] = [
   },
   {
 
-    title: "AES ORACLE",
+    title: "Scry the bones",
     description:
-      `I bet you can't crack *this* AES implementation. 
-This time I won't even provide possible keys!`,
+      "I bet you can't crack *this* AES implementation. \nThis time I won't even provide possible keys! \n\nI will however provide this oracle api :)",
     points: 500,
     category: Category.SYMMETRIC,
     hints: [
