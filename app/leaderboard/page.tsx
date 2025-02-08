@@ -29,6 +29,7 @@ interface TransormedData {
   data: Omit<DataPoint, "name">[]
 }
 
+// Call me shameless but I made this one using Claude 
 function transformData(rawData: DataPoint[]): TransormedData[] {
   // Get all unique timestamps and sort them
   const timestamps = [...new Set([
@@ -86,9 +87,14 @@ export default function Leaderboard() {
       try {
         const response = await fetch('/api/leaderboard');
         if (!response.ok) throw new Error('Failed to fetch data');
-        const data = await response.json();
-        console.log(data);
-        setRawData(data);
+        const newData = await response.json();
+
+        const hasDataChanged = JSON.stringify(newData) !== JSON.stringify(rawData);
+
+        if (hasDataChanged) {
+          console.log('Leaderboard data updated');
+          setRawData(newData);
+        }
       } catch (error) {
         console.error('Error fetching leaderboard data:', error);
       } finally {
@@ -96,8 +102,12 @@ export default function Leaderboard() {
       }
     };
 
+    // Initial fetch
     fetchData();
-  }, []);
+    // Every 15 seconds
+    const intervalId = setInterval(fetchData, 15000);
+    return () => clearInterval(intervalId);
+  }, [rawData]);
 
   const transformedData = transformData(rawData);
 
