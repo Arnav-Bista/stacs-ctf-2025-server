@@ -297,7 +297,7 @@ export const questions: Question[] = [
     category: Category.MATH
   },
   {
-    title: "Sometimes bigger is definitely better..."
+    title: "Sometimes bigger is definitely better...",
     description: "I'm planning on implementing RSA into my system, but since I have an unhealthy distrust in authority and a raging ego - I'm not going to listen whatsoever to the advice to use 2048 bits of security. \n\nMy program uses two 100 bit primes and an 8 bits exponent for a total of 1600 bits of security. \nBeat that NIST. \n\nModulus n: \n984994081290620368062168960884976209711107645166770780785733 \n\nExponent e: \n65537 \n\nCiphertext: \n915674621072223460624529383442331899587647161451973453046598 \n\n\nOnce you have decrypted the ciphertext, convert it from a long into bytes to retrieve the flag.",
     points: 500,
     category: Category.MATH,
