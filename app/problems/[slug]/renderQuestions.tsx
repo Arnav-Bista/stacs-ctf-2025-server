@@ -113,7 +113,7 @@ export default function RenderQuestions({ slug }: { slug: string }) {
                       </div>
                       <div className="space-y-1">
                         <p className="text-xs font-semibold text-muted-foreground">DESCRIPTION</p>
-                        <p className="text-xs sm:text-sm break-words">
+                        <p className="whitespace-pre-line break-words text-wrap text-xs">
                           {question.api.description}
                         </p>
                       </div>

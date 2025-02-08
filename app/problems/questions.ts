@@ -102,20 +102,20 @@ export const questions: Question[] = [
     ]
   },
   {
-      title: "Newjeans? Yeah I've heard of them...",
-      description: "I bought these new jeans the other day from my black market connection, where is the contraband flag that I ordered? \nI called back but the dunce didn't pick up and told me I've already got it???? \n\nHelp me out here please!",
-      points: 500,
-      category: Category.FORENSICS,
-      hints:
-          ["We already have the flag? It must be in the jeans!",
-          "I guess I'll turn them inside out... Huh? There's an extra zipper?"],
-      attachments: [
-          {
-              name: "newjeans.png",
-              type: "image",
-              url: "/newjeans.png"
-          }
-      ]
+    title: "Newjeans? Yeah I've heard of them...",
+    description: "I bought these new jeans the other day from my black market connection, where is the contraband flag that I ordered? \nI called back but the dunce didn't pick up and told me I've already got it???? \n\nHelp me out here please!",
+    points: 500,
+    category: Category.FORENSICS,
+    hints:
+      ["We already have the flag? It must be in the jeans!",
+        "I guess I'll turn them inside out... Huh? There's an extra zipper?"],
+    attachments: [
+      {
+        name: "newjeans.png",
+        type: "image",
+        url: "/newjeans.png"
+      }
+    ]
   },
   {
     title: "Weird Audio?",
@@ -269,7 +269,7 @@ export const questions: Question[] = [
     category: Category.LATTICE,
     description: "Lattices are formed using a set of 'basis vectors', and each point in a lattice is found using a linear combination of these basis vectors.\n\n The simplest lattice would be one where the points are orthogonal to one another, where all the point's inner products equal 0, this is called an 'orthogonal basis'.\n If all the vectors are unit vectors as well, the basis is an 'orthonormal basis'.\n We can generate an orthonormal basis from any set of non-orthogonal, non-unit vectors via an algorithm called the Gram-Schmidt process.\n\n Research and write code to produce an orthonormal basis for these vectors, using the Gram-Schmidt process.\n [3, 4, 0, -2]\n [2, -3, 1, 4]\n [1, 0, 7, 9]\n [6, 1, -1, -5]\n\n The flag is the first 7 significant digits, of the first component, of the fourth vector in the final basis. \n\n DO NOT ROUND YOUR ANSWER.",
     hints:
-        ["Try first to generate an *orthogonal* basis, before an orthonormal basis.",
+      ["Try first to generate an *orthogonal* basis, before an orthonormal basis.",
         "Create separate functions for vector-vector operations and scalar-vector operations.",
         "Wikipedia is your friend."],
     points: 500
@@ -280,7 +280,7 @@ export const questions: Question[] = [
     description: "Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.",
     points: 500,
     hints:
-        ["Gaussian reduction requires an algorithm to be carried out sequentially on each vector. Split up the process into functions.",
+      ["Gaussian reduction requires an algorithm to be carried out sequentially on each vector. Split up the process into functions.",
         "Again, Wikipedia is your friend."]
   },
   {
@@ -316,9 +316,9 @@ This time I won't even provide possible keys!`,
     points: 500,
     category: Category.SYMMETRIC,
     hints: [
-        "The padding in the encryption is very important",
-        "Explore how it relates to ECB mode of AES and how this might affect the final output from encryption",
-        "You don't need to worry about the key, only the flag..."
+      "The padding in the encryption is very important",
+      "Explore how it relates to ECB mode of AES and how this might affect the final output from encryption",
+      "You don't need to worry about the key, only the flag..."
     ],
     attachments: [
       {
@@ -330,7 +330,13 @@ This time I won't even provide possible keys!`,
     api: {
       method: "POST",
       endpoint: "/aes-oracle",
-      description: ["A Flask server is running the encryption function. Send your payload to the server to get the encrypted payload.", "\n\nSend your data in this format: 'bytes.hex(your_data_here.encode())' \n\nThen send as a json using 'requests.post(url, json = 'your_json_here')'"],
+      description: `A Flask server is running the encryption function. Send your payload to the server to get the encrypted payload
+
+
+Send your data in this format: 'aposbytes.hex(your_data_here.encode())'apos
+
+
+Then send as a json using 'aposrequests.post(url, json = 'aposyour_json_here'apos)'apos`,
       requestFormat: {
         type: "json",
         example: '{ "data": "datayouwantencrypted" }'

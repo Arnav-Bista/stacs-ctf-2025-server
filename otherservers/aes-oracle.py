@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
+import json
 
 app = Flask(__name__)
 
@@ -22,17 +23,23 @@ def encrypt(plaintext):
 @app.route('/aes-oracle', methods=['POST'])
 def encrypt_handler():
     try:
-        data = request.get_json(force=True)
-        if 'data' not in data:
-            return jsonify({"error": "Missing 'data' field"}), 400
-
-        plaintext = data['data']
-        result = encrypt(plaintext)
-
-        return jsonify({"data": result})
+        data = request.get_json(force=True, cache=True)
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
+        return jsonify({"error": str(e), "human-err": "Not a json bro"})
+
+    if 'data' not in data:
+        return jsonify({"error": "Missing 'data' field"}), 400
+
+    plaintext = data['data']
+    try:
+        result = encrypt(plaintext)
+    except Exception as e:
+        return jsonify({"error": str(e), "human-err": "Failed to encrypt."}), 400
+
+    return jsonify({"data": result})
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=2000)
+    from waitress import serve
+    serve(app, host="127.0.0.1", port=3210)
+    # app.run(host='127.0.0.1', port=3210, debug=True)
