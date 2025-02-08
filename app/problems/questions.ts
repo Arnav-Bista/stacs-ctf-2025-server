@@ -346,10 +346,10 @@ export const questions: Question[] = [
       description: `A Flask server is running the encryption function. Send your payload to the server to get the encrypted payload
 
 
-Send your data in this format: &aposbytes.hex(your_data_here.encode())&apos
+Send your data in this format: bytes.hex(your_data_here.encode())
 
 
-Then send as a json using &aposrequests.post(url, json = &aposyour_json_here&apos)&apos`,
+Then send as a json using: requests.post(url, json = your_json_here)`,
       requestFormat: {
         type: "json",
         example: '{ "data": "datayouwantencrypted" }'
