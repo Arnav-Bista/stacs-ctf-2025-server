@@ -400,8 +400,8 @@ You know what? To rub salt in the wound, I'll even give you another one! 😎`,
     description: `Thanks to your efforts in cracking the encryption systems, we've been able to get a hold of some super high level secrets...`,
     points: 0,
     category: Category.SYMMETRIC,
-    lockedPassword: "TEST",
-    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    lockedPassword: "hashingseemsits",
+    lockedHint: "Take the first word inside the curly brackets of each flag and concatenate them together.",
     attachments: [
       {
         type: "file",
@@ -415,8 +415,8 @@ You know what? To rub salt in the wound, I'll even give you another one! 😎`,
     description: `We were waiting for someone with the forensics investigation skills to help us with this document.`,
     points: 0,
     category: Category.FORENSICS,
-    lockedPassword: "TEST",
-    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    lockedPassword: "ssgbmh",
+    lockedHint: "Take the first character inside the curly brackets of each flag and concatenate them together. In the case that the flag is not a string, take the first digit of each number.",
     attachments: [
       {
         type: "file",
@@ -430,8 +430,8 @@ You know what? To rub salt in the wound, I'll even give you another one! 😎`,
     description: `The numbers Mason, what do they mean?`,
     points: 0,
     category: Category.LATTICE,
-    lockedPassword: "TEST",
-    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    lockedPassword: "8250585890883507031664608",
+    lockedHint: "Concatenate the two flags together.",
     attachments: [
       {
         type: "file",
@@ -445,8 +445,8 @@ You know what? To rub salt in the wound, I'll even give you another one! 😎`,
     description: `We've got some math problems that need solving!`,
     points: 0,
     category: Category.MATH,
-    lockedPassword: "TEST",
-    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    lockedPassword: "d91bds",
+    lockedHint: "Take the first character inside the curly brackets of each flag and concatenate them together. In the case that the flag is not a string, take the first digit of each number.",
     attachments: [
       {
         type: "file",

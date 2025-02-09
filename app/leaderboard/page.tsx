@@ -114,7 +114,8 @@ export default function Leaderboard() {
   // Calculate current standings
   const currentStandings = transformedData.map(team => ({
     name: team.name,
-    points: team.data[team.data.length - 1].points
+    points: team.data[team.data.length - 1].points,
+    flagCount: rawData.filter(entry => entry.name === team.name).length
   })).sort((a, b) => b.points - a.points);
 
   return (
@@ -223,7 +224,10 @@ export default function Leaderboard() {
                       backgroundColor: selectedTeam === team.name ? '#ffa07a' : 'hsl(var(--chart-1))'
                     }}
                   />
-                  <span>{team.name}</span>
+                  <div className="flex flex-col">
+                    <span>{team.name}</span>
+                    <span className="text-xs text-muted-foreground">{team.flagCount} flags</span>
+                  </div>
                 </div>
                 <span className="font-bold">
                   {team.points} pts
