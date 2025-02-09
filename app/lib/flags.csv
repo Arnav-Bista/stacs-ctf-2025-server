@@ -1,29 +1,28 @@
-#,Category,Title,Points,Flag,Difficulty
-1,Forensics,My Password V1,50,flag_{stacs-how-hungry?()!@},1
-2,Engineering,Buffers v1,50,flag_{wait-how-did-you-get-here?},1
-3,Misc,Inspect Element,50,flag_{ok-this-one-was-really-easy},
-4,Math,"""Encryption""",100,flag_{base64-is-not-encryption},
-5,Engineering,Basic Authentication ,100,flag_{this-is-why-you-hash-passwords},2
-6,Forensics,"Dox this, B***h!",150,flag_{bro-is-better-than-rainbolt!!},1
-7,Engineering,SQLi v1,150,flag_{this-is-why-you-use-sql-parameters},1
-8,Symmetric,Uncrackable,150,flag_{its-called-one-time-bro-@_@},
-9,Math,gcvc'z i sypt pizxi,150,flag_{dwunt-twy-to-break-ahjwcb-the-ceipher-aqui},2
-10,Misc,Cool picture bro (Cicada),150,648411186283547,2
-11,Forensics,https://us-tuna-sounds-images.voicemod.net/5b23cd9b-0c2d-471f-8589-9e6bdee73d4c-1680393318917.jpeg,200,flag_{hidden-in-the-frequencies},1
-12,Forensics,My Password V2,250,flag_{stacs-hidden-in-plain-sight@@},
-13,Forensics,My Password V3,250,flag_{good_luck_with_this_one},
-14,Engineering,I can write comments??,250,flag_{dangerouslySetInnerHTML-is-dangerous-schocker!!!},3
-15,Lattice,The Gram-Schmidt process,250,1664608,
-16,Symmetric,AES MD5,250,flag_{hashing_isnt_encryption!!!},
-17,Math,Chinese Remainder Theorem,200,"x = 95494, a = 1144",
-18,Math,THERE CAN ONLY BE ONE,250,flag_{dont_be_lazy_with_your_primes!},
-19,Forensics,Newjeans? Yeah I've heard of them,300,flag_{my_fly_is_open},
-20,Engineering,SQLi v2,300,flag_{information-schemas-are-useful},
-21,Lattice,Gaussian Lattice Reduction,250,825058589088350703,
-22,Math,Sometimes bigger is definitely better...,300,flag_{short_king},
-23,Engineering,SQLi v3,400,injections-allow-scary-triggers_this_is_the_fl@g!,
-24,Symmetric,AES ORACLE,400,flag_{seems_ecb_is_vry_insecure},
-25,Engineering,Buffers v2,450,flag_{professional-c-and-under-the-hood-understander},9
-26,Engineering,Buffers v3,500,flag_{return-to-somewhere-else-manipulator},10
-27,Symmetric,Transmission (Locked),,TODO,
-28,Misc,Physical,,TODO,
+#,Category,Title,Points,Flag,Difficulty,Column 1,Column 2
+1,Engineering,Basic Authentication ,100,flag_{this-is-why-you-hash-passwords},2,,
+2,Engineering,Buffers v1,50,flag_{wait-how-did-you-get-here?},1,,
+3,Engineering,Buffers v2,450,flag_{professional-c-and-under-the-hood-understander},9,,
+4,Engineering,Buffers v3,500,flag_{return-to-somewhere-else-manipulator},10,,
+5,Engineering,I can write comments??,250,flag_{dangerouslySetInnerHTML-is-dangerous-schocker!!!},3,,
+6,Engineering,SQLi v1,150,flag_{this-is-why-you-use-sql-parameters},1,,
+7,Engineering,SQLi v2,300,flag_{information-schemas-are-useful},,,
+8,Engineering,SQLi v3,400,injections-allow-scary-triggers_this_is_the_fl@g!,,,
+9,Forensics,"Dox this, B***h!",150,flag_{bro-is-better-than-rainbolt!!},1,,
+10,Forensics,https://us-tuna-sounds-images.voicemod.net/5b23cd9b-0c2d-471f-8589-9e6bdee73d4c-1680393318917.jpeg,200,flag_{hidden-in-the-frequencies},1,,
+11,Forensics,My Password V1,50,flag_{stacs-how-hungry?()!@},1,,
+12,Forensics,My Password V2,250,flag_{stacs-hidden-in-plain-sight@@},,,
+13,Forensics,My Password V3,250,flag_{good_luck_with_this_one},,,
+14,Forensics,Newjeans? Yeah I've heard of them,300,flag_{my_fly_is_open},,,
+15,Lattice,Gaussian Lattice Reduction,250,825058589088350703,,,
+16,Lattice,The Gram-Schmidt process,250,1664608,,,
+17,Math,"""Encryption""",100,flag_{base64-is-not-encryption},,,
+18,Math,Chinese Remainder Theorem,200,"x = 95494, a = 1144",,,
+19,Math,gcvc'z i sypt pizxi,150,flag_{dwunt-twy-to-break-ahjwcb-the-ceipher-aqui},2,,
+20,Math,Sometimes bigger is definitely better...,300,flag_{short_king},,,
+21,Math,THERE CAN ONLY BE ONE,250,flag_{dont_be_lazy_with_your_primes!},,,
+22,Misc,Brady,200,JP 755,,,
+23,Misc,Cool picture bro (Cicada),150,648411186283547,2,,
+24,Misc,Inspect Element,50,flag_{ok-this-one-was-really-easy},,,
+25,Symmetric,AES MD5 (Just hashing it out),250,flag_{hashing_isnt_encryption!!!},,,
+26,Symmetric,AES ORACLE (Scyr),400,flag_{seems_ecb_is_vry_insecure},,,
+27,Symmetric,Uncrackable,150,flag_{its-called-one-time-bro-@_@},,,
