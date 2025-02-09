@@ -359,6 +359,19 @@ Then send as a json using: requests.post(url, json = your_json_here)`,
     }
   },
   {
+    title: "Cool picture, bro",
+    description: "Friend of mine just sent me this picture, bro said he wants a number...",
+    points: 400,
+    category: Category.MISC,
+    attachments: [
+      {
+        name: "picture.png",
+        type: "image",
+        url: "/picture.png"
+      }
+    ]
+  },
+  {
     title: "Uncrackable",
     points: 500,
     category: Category.SYMMETRIC,
