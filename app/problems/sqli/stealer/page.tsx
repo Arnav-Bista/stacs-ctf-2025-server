@@ -38,10 +38,19 @@ export default function SQLiTables() {
         VALUES ('tester', 'TestMaxer 900', 'password')
       `);
       // Not expected to crack this
+      // Insert GoofMaster9000
       db.run(`
         INSERT INTO users (username, name, password)
         VALUES ('GoofMaster9000', 'GoofMaster9000', 'cracking_this_password_is_not_the_intended_challenge')
       `);
+
+      // Insert GoofMasters from 8900 to 8999
+      for (let i = 8900; i < 9000; i++) {
+        db.run(`
+          INSERT INTO users (username, name, password)
+          VALUES ('GoofMaster${i}', 'GoofMaster${i}', 'default_password_${i}')
+        `);
+      }
 
       setDb(db);
       setIsLoading(false);
@@ -52,7 +61,7 @@ export default function SQLiTables() {
   async function simulatePasswordChange() {
     if (!db) return;
     try {
-      db.run(` UPDATE users SET password = 'flag_{injections-allow-scary-triggers}' WHERE username = 'GoofMaster9000'`);
+      db.run(` UPDATE users SET password = 'injections-allow-scary-triggers_this_is_the_fl@g!' WHERE username = 'GoofMaster9000'`);
       setMessage({
         error: false,
         message: "Password changed successfully"

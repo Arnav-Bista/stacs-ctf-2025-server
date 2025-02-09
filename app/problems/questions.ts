@@ -1,3 +1,4 @@
+import Page from "./page";
 
 export enum Category {
   FORENSICS = "forensics",
@@ -46,7 +47,7 @@ export const questions: Question[] = [
     title: "My Password v1",
     description: "I saw how this dude hid his password inside an image and showed it on stream!\nWell, all I've got is a text editor with me...\n\n\nNote to my future self: I love cats!",
     hints: ["Text Editor?"],
-    points: 100,
+    points: 50,
     category: Category.FORENSICS,
     attachments: [
       {
@@ -59,7 +60,7 @@ export const questions: Question[] = [
   {
     title: "My Password v2",
     description: "Time for a little more security!",
-    points: 500,
+    points: 250,
     category: Category.FORENSICS,
     attachments: [
       {
@@ -75,7 +76,7 @@ export const questions: Question[] = [
     hints: [
       "Use the python Pillow library for image processing."
     ],
-    points: 500,
+    points: 250,
     category: Category.FORENSICS,
     attachments: [
       {
@@ -93,7 +94,7 @@ export const questions: Question[] = [
   {
     title: "DOXX THIS B****!",
     description: "I may have flamed a bit to hard in my ranked game...",
-    points: 200,
+    points: 150,
     category: Category.FORENSICS,
     attachments: [
       {
@@ -106,7 +107,7 @@ export const questions: Question[] = [
   {
     title: "Newjeans? Yeah I've heard of them...",
     description: "I bought these new jeans the other day from my black market connection, where is the contraband flag that I ordered? \nI called back but the dunce didn't pick up and told me I've already got it???? \n\nHelp me out here please!",
-    points: 500,
+    points: 300,
     category: Category.FORENSICS,
     hints:
       ["We already have the flag? It must be in the jeans!",
@@ -122,7 +123,7 @@ export const questions: Question[] = [
   {
     title: "https://us-tuna-sounds-images.voicemod.net/5b23cd9b-0c2d-471f-8589-9e6bdee73d4c-1680393318917.jpeg",
     description: "This vine boom sound effect I downloaded got some weird sounding bits...",
-    points: 150,
+    points: 200,
     category: Category.FORENSICS,
     attachments: [
       {
@@ -148,7 +149,7 @@ export const questions: Question[] = [
   {
     title: "gcvc'z i sypt pizxi",
     description: "",
-    points: 400,
+    points: 150,
     category: Category.MATH,
     attachments: [
       {
@@ -161,13 +162,13 @@ export const questions: Question[] = [
   {
     title: "Chinese Remainder Theorem",
     description: "The Chinese Remainder Theorem is the basis for Ring encryption, a vital process which allows for untracable repudiation (say for whistleblowers), it gives a unique solution to a system of linear congruences, provided that the moduli of said congruences are coprime.\n\n\nI.e. Given a set of arbitrary integers a_i, and a set of pairwise coprime integers p_i, given the following linear congruences hold:\n\n    x = a_1 mod p_1\n    x = a_2 mod p_2\n    x = a_3 mod p_3\n        ...\n    x = a_n mod p_n\n\nWe can get a solution: x = a mod N, where N is p_1 * p_2 * p_3 * ... * p_n.\n\n\nGiven the following congruences:\n\n    x = 4 mod 5\n    x = 5 mod 17\n    x = 34 mod 37\n\nFind the values of x & a such that: x = a mod 3145, and x satisfies the given congruences. \n\nProvide your answer in the form 'x = N, a = M'",
-    points: 300,
+    points: 200,
     category: Category.MATH
   },
   {
     title: "\"Encryption\"",
     description: "I've just encrypted the flag!!1!!1 I bet you can't do anything with the cipher text!\n\nYou know what, here it is: ZmxhZ197YmFzZTY0LWlzLW5vdC1lbmNyeXB0aW9ufQ== ",
-    points: 200,
+    points: 100,
     category: Category.MATH,
     attachments: [
       {
@@ -182,7 +183,7 @@ export const questions: Question[] = [
     category: Category.ENGINEERING,
     description: "This is my first time learning SQL, checkout this simple auth page I made!\nBut it'll be of no use to you since you dont know my credentials 😎",
     link: "/problems/sqli/basic-auth",
-    points: 300,
+    points: 150,
   },
   {
     title: "SQLi v2",
@@ -190,7 +191,7 @@ export const questions: Question[] = [
     description: "So can login and bypass the authentication system... but can you find the flag?\n\nUse this login:\ntester\npassword",
     hints: ["It's a sqlite database"],
     link: "/problems/sqli/tables",
-    points: 500,
+    points: 300,
   },
   {
     title: "SQLi v3",
@@ -198,13 +199,13 @@ export const questions: Question[] = [
     description: "You've just gotten news that someone else is changing their password...\n\nUse this login:\ntester\npassword",
     hints: ["🔫"],
     link: "/problems/sqli/stealer",
-    points: 800,
+    points: 400,
   },
   {
     title: "Buffers v1",
     category: Category.ENGINEERING,
     description: "Nothing is impossible in C\n\n Compiled using the following:\n gcc -o buffers1 -fno-stack-protector -z execstack -no-pie buffers.c",
-    points: 200,
+    points: 50,
     api: {
       endpoint: "/api/problems/buffers",
       method: "POST",
@@ -226,7 +227,7 @@ export const questions: Question[] = [
     title: "Buffers v2",
     category: Category.ENGINEERING,
     description: "Wait I can rewrite variables with overflow??\n\n Compiled using the following:\n gcc -o buffers2 -fno-stack-protector -z execstack -no-pie buffers.c",
-    points: 200,
+    points: 450,
     api: {
       endpoint: "/api/problems/buffers",
       method: "POST",
@@ -248,7 +249,7 @@ export const questions: Question[] = [
     title: "Buffers v3",
     category: Category.ENGINEERING,
     description: "The win function is never called, what are you going to do about it?\n\n Compiled using the following:\n gcc -o buffers3 -fno-stack-protector -z execstack -no-pie buffers.c",
-    points: 200,
+    points: 500,
     api: {
       endpoint: "/api/problems/buffers",
       method: "POST",
@@ -274,13 +275,13 @@ export const questions: Question[] = [
       ["Try first to generate an *orthogonal* basis, before an orthonormal basis.",
         "Create separate functions for vector-vector operations and scalar-vector operations.",
         "Wikipedia is your friend."],
-    points: 500
+    points: 250
   },
   {
     title: "Gaussian Reduction",
     category: Category.LATTICE,
     description: "Recommended to attempt the 'Gram-Schmidt' question before this one.\n\n When attempting to solve the Learning with Errors problem in a lattice, a lot of the difficulty comes from an 'inoptimal basis'.\n Other than the communicating parties using this cryptosystem, no-one will have access to an optimal (not necessarily orthogonal/orthonormal) basis for the lattice which will reduce the complexity of solving the problem.\n\n A way of computing an near-optimal basis from an arbitrary basis is the process of 'Lattice Reduction'.\n 'Gaussian Reduction' is a process to find an optimal basis for a 2-dimensional lattice.\n\n Research Gaussian Reduction, and find the optimal basis for these two basis vectors:\n [8468127585,983815398552]\n [875020913,123094942980]\n\n The flag for this question is the inner product of the two new basis vectors.",
-    points: 500,
+    points: 250,
     hints:
       ["Gaussian reduction requires an algorithm to be carried out sequentially on each vector. Split up the process into functions.",
         "Again, Wikipedia is your friend."]
@@ -288,7 +289,7 @@ export const questions: Question[] = [
   {
     title: "I can write comments?!",
     description: "Mausemaster from 2m2t (2 mause 2 tools) just made a new comment section which he will be checking!",
-    points: 200,
+    points: 250,
     link: "/problems/web/tokens",
     category: Category.ENGINEERING
   },
@@ -309,7 +310,7 @@ export const questions: Question[] = [
   {
     title: "Just hashing it out",
     description: "I've built an AES_ECB encryption system that uses MD5 hashing to make my short keys harder to figure out!\n Because of this, I only have to use one word from my dictionary so I can cut costs on SSDs... Take that Big M.2!\n\n I bet you can't extract my key from this ciphertext:\n 8f3512874323615b95e3d48ba2b6f7f431dbbfff0322b1b29d3ac97c475b0f3afa4dac39426b8a7ef6dbaf6ea179599abb626e8d334e9fd8d3fd071305feaaee\n\n My ultra secret dictionary is also here, take a look, it's not like you'd get anything from it!.\n Normally I wouldn't provide it but I'm feeling weirdly cocky and arrogant today.",
-    points: 500,
+    points: 250,
     category: Category.SYMMETRIC,
     hints: [
       "Use PyCryptoDome library for AES functions - 'pip install pycryptodome'",
@@ -328,7 +329,7 @@ export const questions: Question[] = [
     title: "Scry the bones",
     description:
       "I bet you can't crack *this* AES implementation. \nThis time I won't even provide possible keys! \n\nI will however provide this oracle api :)",
-    points: 500,
+    points: 400,
     category: Category.SYMMETRIC,
     hints: [
       "The padding in the encryption is very important",
@@ -361,7 +362,7 @@ Then send as a json using: requests.post(url, json = your_json_here)`,
   {
     title: "Cool picture, bro",
     description: "Friend of mine just sent me this picture, bro said he wants a number...",
-    points: 400,
+    points: 150,
     category: Category.MISC,
     attachments: [
       {
@@ -373,7 +374,7 @@ Then send as a json using: requests.post(url, json = your_json_here)`,
   },
   {
     title: "Uncrackable",
-    points: 500,
+    points: 150,
     category: Category.SYMMETRIC,
     description: `I've just learnt about the One Time Pad system! Its literally uncrackable!!!
 
@@ -397,16 +398,62 @@ You know what? To rub salt in the wound, I'll even give you another one! 😎`,
   {
     title: "Insecure Transmission",
     description: `Thanks to your efforts in cracking the encryption systems, we've been able to get a hold of some super high level secrets...`,
-    points: 1000,
+    points: 0,
     category: Category.SYMMETRIC,
     lockedPassword: "TEST",
     lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
     attachments: [
       {
         type: "file",
-        name: "transmission.txt",
-        url: "/transmission.txt"
+        name: "R̴̜̹̂̈̕2̷̛̣̗̉̚9̸̳̟̠̈́͐̾v̶͍̑̽͜͝ͅẐ̸̪͗̈́ͅn̵̩͑̈́l̴̳̩̆̕H̸̪̺̄̌͝ċ̵̢̽͌m̸̩̟̘̓̎9̴̠̦͋v̸̞̗̗̍͌͝Ŷ̶̨̹̮̋m̶̱͖̞̌V̷̠̱̎̇̓ỵ̷̨̜̿",
+        url: "/transmission-symmetric.txt"
+      }
+    ]
+  },
+  {
+    title: "Decrypted Photocopy",
+    description: `We were waiting for someone with the forensics investigation skills to help us with this document.`,
+    points: 0,
+    category: Category.FORENSICS,
+    lockedPassword: "TEST",
+    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    attachments: [
+      {
+        type: "file",
+        name: "R̵͓͜͠3̸̝͎͐̒̾J̵͇̭̒̒͑v̷̺͔͋̇b̵̬͒̎2̷̡̩̽̿̂J̵̘̘̈́̀̀ḽ̷͔̓̽c̵̩͂ͅk̵̯̿̉d̴̫̤̀ͅv̴͇͈̾b̵̨͔̆͂̾2̷͎̄͋Z̷͈̲͇̓͊5̴͖̍̓͘",
+        url: "/transmission-forensics.txt"
+      }
+    ]
+  },
+  {
+    title: "Breaking Lattice",
+    description: `The numbers Mason, what do they mean?`,
+    points: 0,
+    category: Category.LATTICE,
+    lockedPassword: "TEST",
+    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    attachments: [
+      {
+        type: "file",
+        name: "Q̴̢̕m̷̳͑̾̅l̴̤͇͇̒s̵̜͇͗̐b̴̭̻̀̂͝Ḥ̸̉̈́̾ļ̶̝̓Ṭ̵̹͇͝a̷̞̰̠̎Ẅ̵͍͜x̸̛̞̋̏s̸̮̟͐͆e̵̍͌̅ͅQ̷̢̡̯͌≠͚̀≠̺̔̔",
+        url: "/transmission-lattice.txt"
+      }
+    ]
+  },
+  {
+    title: "Mathing Around",
+    description: `We've got some math problems that need solving!`,
+    points: 0,
+    category: Category.MATH,
+    lockedPassword: "TEST",
+    lockedHint: "Convert all flags of this section into bytecode, xor them together and convert the result back into a string.",
+    attachments: [
+      {
+        type: "file",
+        name: "Ṷ̸̿̓2̶͔̥͆ͅl̶̢̗̲̑́̄ṡ̵͉̬͠b̸͔̔͋̈́ͅH̵̪͍̼͝͝l̶̘̼̑C̵̲͚̕͜å̵̩̙͕Ẅ̴̞͙̀x̸͎͋̃s̵̤̩͘ẻ̵̢̫̈́̆Q̶̱̘̄̈́=̴̥͓͓͊=̷̘̹̿̃̂",
+        url: "/transmission-math.txt"
       }
     ]
   }
+
 ];
