@@ -18,7 +18,7 @@ int main() {
     printf("I'm sorry, I don't think we can be friends anymore.\n");
   }
 
-  if (hackerman == 0xDEADBEEF) {
+  if (hackerman == 0x216E6977) {
     printf("You are a master hacker, hacker of all hackers!\n");
     printf("level 500 overlord!\n");
     printf("Here is your flag: XXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
