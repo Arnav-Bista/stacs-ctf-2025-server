@@ -15,9 +15,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-const COMPETITION_START = new Date('2025-01-22T00:00:00Z');
-const COMPETITION_END = new Date(COMPETITION_START.getTime() + (24 * 60 * 60 * 1000));
-
 type DataPoint = {
   name: string;
   points: number;
@@ -33,9 +30,7 @@ interface TransormedData {
 function transformData(rawData: DataPoint[]): TransormedData[] {
   // Get all unique timestamps and sort them
   const timestamps = [...new Set([
-    COMPETITION_START.getTime(),
     ...rawData.map(entry => new Date(entry.found_at).getTime()),
-    COMPETITION_END.getTime()
   ])].sort((a, b) => a - b);
 
   // Initialize teams with their data arrays
@@ -114,8 +109,7 @@ export default function Leaderboard() {
   // Calculate current standings
   const currentStandings = transformedData.map(team => ({
     name: team.name,
-    points: team.data[team.data.length - 1].points,
-    flagCount: rawData.filter(entry => entry.name === team.name).length
+    points: team.data[team.data.length - 1].points
   })).sort((a, b) => b.points - a.points);
 
   return (
@@ -137,7 +131,9 @@ export default function Leaderboard() {
                   dataKey="found_at"
                   className="text-sm text-muted-foreground"
                   type="number"
-                  domain={[COMPETITION_START.getTime(), COMPETITION_END.getTime()]}
+                  domain={[
+                    new Date("2025-02-15T15:00:00").getTime(),
+                  ]}
                   scale="time"
                   tickFormatter={(value) => {
                     const date = new Date(value);
@@ -224,10 +220,7 @@ export default function Leaderboard() {
                       backgroundColor: selectedTeam === team.name ? '#ffa07a' : 'hsl(var(--chart-1))'
                     }}
                   />
-                  <div className="flex flex-col">
-                    <span>{team.name}</span>
-                    <span className="text-xs text-muted-foreground">{team.flagCount} flags</span>
-                  </div>
+                  <span>{team.name}</span>
                 </div>
                 <span className="font-bold">
                   {team.points} pts
